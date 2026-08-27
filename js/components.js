@@ -309,6 +309,11 @@
 <footer class="site-footer">
   <div class="container footer-row">
     <span>© 2026 Nguyễn Duy Cương — Giảng viên Khoa Ngoại ngữ - Tin học, Học viện Chính trị CAND</span>
+    <div class="footer-counter">
+      <a href="https://info.flagcounter.com/C1xj" target="_blank" rel="noopener" title="Thống kê truy cập Flag Counter">
+        <img src="https://s11.flagcounter.com/mini/C1xj/bg_FFFFFF/txt_0284C7/border_FFFFFF/flags_0/" alt="Flag Counter" border="0">
+      </a>
+    </div>
     <div class="footer-links">
       <a href="tel:0919191804"><i class="fa-solid fa-phone"></i> 091.91.91.804</a>
       <a href="https://zalo.me/atomins" target="_blank" rel="noopener"><i class="fa-solid fa-comment-dots"></i> Zalo</a>
