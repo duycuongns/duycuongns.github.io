@@ -14,7 +14,7 @@
         if (saved) return saved;
       }
     } catch (e) {}
-    return 'light'; // Mặc định là giao diện Sáng
+    return 'dark'; // Mặc định là giao diện Tối
   }
 
   function applyTheme(theme) {
@@ -74,7 +74,7 @@
   function getHeaderHTML() {
     const base = getBasePath();
     const pages = getPagesPath();
-    const currentTheme = (typeof document !== 'undefined' && document.documentElement && document.documentElement.getAttribute('data-theme')) || 'light';
+    const currentTheme = (typeof document !== 'undefined' && document.documentElement && document.documentElement.getAttribute('data-theme')) || 'dark';
     const iconClass = currentTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
     const titleText = currentTheme === 'dark' ? 'Chuyển sang chế độ Sáng' : 'Chuyển sang chế độ Tối';
 
