@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khóa học — Nguyễn Duy Cương</title>
+<meta name="description" content="Chi tiết các khóa học Word, Excel, PowerPoint online thực chiến 1-kèm-1 cùng Giảng viên Nguyễn Duy Cương.">
+<link rel="icon" type="image/png" href="../images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <!-- PHẦN 1: TIÊU ĐỀ TRANG -->
+  <section class="page-head container" data-reveal>
+    <span class="eyebrow">/khóa-học</span>
+    <h1 style="font-size: var(--fs-3xl);">Chương trình đào tạo<br><span class="name-gradient">Tin học văn phòng thực chiến</span></h1>
+    <p class="profile-desc" style="max-width: 760px; margin-top: var(--space-2);">
+      Đào tạo online 1-kèm-1, cá nhân hóa lộ trình theo hồ sơ công việc thực tế của từng học viên. Bấm vào từng nút bên dưới để xem chi tiết từng module và bài học thực hành.
+    </p>
+  </section>
+
+  <!-- PHẦN 2: 3 NÚT CHỌN CHƯƠNG TRÌNH HỌC -->
+  <section class="section container" style="padding-top: 0; padding-bottom: var(--space-4);">
+    <!-- 3 Nút Ribbon Tabs -->
+    <div class="ribbon" style="margin-bottom: var(--space-4);" data-reveal>
+      <button type="button" class="ribbon-tab word is-active" data-course-tab="word">
+        <span class="dot"></span><i class="fa-solid fa-file-word"></i> Microsoft Word
+      </button>
+      <button type="button" class="ribbon-tab excel" data-course-tab="excel">
+        <span class="dot"></span><i class="fa-solid fa-file-excel"></i> Microsoft Excel
+      </button>
+      <button type="button" class="ribbon-tab ppt" data-course-tab="ppt">
+        <span class="dot"></span><i class="fa-solid fa-file-powerpoint"></i> Microsoft PowerPoint
+      </button>
+    </div>
+
+    <!-- TỔNG QUAN 3 KHÓA HỌC (QUICK CARDS) -->
+    <div class="grid-3" style="margin-bottom: var(--space-5);">
+      <!-- KHÓA WORD -->
+      <article class="course-card" style="--course-color: var(--word); --course-rgb: var(--word-rgb);" data-reveal>
+        <span class="icon">W · WORD</span>
+        <h3>Word: Quản lý & Soạn thảo</h3>
+        <p>Chuẩn hóa văn bản hành chính, quản lý tài liệu dài, mục lục tự động và trộn thư hàng loạt.</p>
+        <div class="price">1-kèm-1 <span class="old">thực chiến</span></div>
+        <button type="button" class="btn btn-primary" data-jump-course="word" style="margin-top: 0.8em; justify-content: center; width: 100%;">
+          Xem chi tiết Word ↓
+        </button>
+      </article>
+
+      <!-- KHÓA EXCEL -->
+      <article class="course-card" style="--course-color: var(--excel); --course-rgb: var(--excel-rgb);" data-reveal>
+        <span class="icon">X · EXCEL</span>
+        <h3>Excel: Dữ liệu & Báo cáo</h3>
+        <p>Làm chủ hàm logic, XLOOKUP, PivotTable, Dashboard tự động và giải quyết bài toán nghiệp vụ.</p>
+        <div class="price">1-kèm-1 <span class="old">thực chiến</span></div>
+        <button type="button" class="btn btn-primary" data-jump-course="excel" style="margin-top: 0.8em; justify-content: center; width: 100%;">
+          Xem chi tiết Excel ↓
+        </button>
+      </article>
+
+      <!-- KHÓA POWERPOINT -->
+      <article class="course-card" style="--course-color: var(--ppt); --course-rgb: var(--ppt-rgb);" data-reveal>
+        <span class="icon">P · POWERPOINT</span>
+        <h3>PPT: Thiết kế & Thuyết trình</h3>
+        <p>Slide Master đồng bộ, Infographic trực quan hóa số liệu, hiệu ứng Morph và phong thái trình chiếu.</p>
+        <div class="price">1-kèm-1 <span class="old">thực chiến</span></div>
+        <button type="button" class="btn btn-primary" data-jump-course="ppt" style="margin-top: 0.8em; justify-content: center; width: 100%;">
+          Xem chi tiết PPT ↓
+        </button>
+      </article>
+    </div>
+
+    <!-- KHU VỰC CHI TIẾT CHƯƠNG TRÌNH HỌC THEO TAB -->
+    <div id="course-details-section">
+
+      <!-- ================= CHI TIẾT KHÓA WORD ================= -->
+      <div class="course-detail-panel is-active" id="detail-word" style="--panel-color: var(--word);">
+        <div class="syllabus-hero" data-reveal>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; flex-wrap: wrap;">
+            <div>
+              <span class="eyebrow" style="color: var(--word); border-color: rgba(var(--word-rgb), 0.3); background: rgba(var(--word-rgb), 0.1);">Chương trình chi tiết</span>
+              <h2 style="margin-top: 0.2em;">Khóa học Microsoft Word: Soạn thảo & Quản lý Văn bản Chuyên nghiệp</h2>
+              <p class="muted" style="margin-top: 0.5em; max-width: 800px;">
+                Trang bị tư duy xử lý văn bản quy chuẩn, làm chủ hoàn toàn các tài liệu hành chính, hợp đồng và báo cáo hàng trăm trang mà không lo vỡ định dạng hay mất thời gian căn chỉnh thủ công.
+              </p>
+            </div>
+            <a href="dang-ky.html?course=Word" class="btn btn-primary">
+              <i class="fa-solid fa-graduation-cap"></i> Đăng ký khóa Word
+            </a>
+          </div>
+        </div>
+
+        <div class="syllabus-grid" data-reveal>
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 01</span>
+              <span>QUY CHUẨN THỂ THỨC</span>
+            </div>
+            <h4>Định dạng Văn bản Chuẩn Nghị định 30/2020/NĐ-CP</h4>
+            <ul>
+              <li>Thiết lập lề trang giấy, khổ giấy, font chữ tiêu chuẩn nhà nước.</li>
+              <li>Trình bày Quốc hiệu, Tiêu ngữ, Tên cơ quan ban hành, Số ký hiệu, Trích yếu.</li>
+              <li>Quy chuẩn căn lề phần chữ ký số, nơi nhận và dấu giáp lai.</li>
+              <li>Tạo File Template (Mẫu) dùng lại vĩnh viễn cho cơ quan/công ty.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 02</span>
+              <span>TÀI LIỆU DÀI & MỤC LỤC</span>
+            </div>
+            <h4>Hệ thống Styles, Heading & Tự động hóa Báo cáo</h4>
+            <ul>
+              <li>Quản lý phân cấp Heading (1, 1.1, 1.1.1) tự động đánh số chuẩn xác.</li>
+              <li>Tạo mục lục nội dung (Table of Contents) tự động cập nhật 1-click.</li>
+              <li>Tạo danh mục Bảng biểu (Table of Figures) và Hình ảnh riêng biệt.</li>
+              <li>Kỹ thuật ngắt Section (Section Break) đánh số trang linh hoạt (I, II, 1, 2).</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 03</span>
+              <span>XỬ LÝ DỮ LIỆU HÀNG LOẠT</span>
+            </div>
+            <h4>Kỹ thuật Trộn Thư (Mail Merge) Nâng cao</h4>
+            <ul>
+              <li>Liên kết nguồn dữ liệu Excel vào biểu mẫu Word mượt mà.</li>
+              <li>Tự động xuất hàng trăm hợp đồng lao động, thông báo, giấy mời, phiếu lương.</li>
+              <li>Định dạng đúng ngày tháng, số tiền (có dấu phẩy ngăn cách hàng nghìn) trong Merge.</li>
+              <li>Xuất file PDF hoặc gửi email tự động theo danh sách học viên/nhân viên.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 04</span>
+              <span>BẢO MẬT & CỘNG TÁC</span>
+            </div>
+            <h4>Bảo mật, Khóa chỉnh sửa & Kiểm soát thay đổi</h4>
+            <ul>
+              <li>Tính năng Track Changes: Theo dõi, duyệt hoặc từ chối chỉnh sửa của đồng nghiệp.</li>
+              <li>So sánh 2 phiên bản tài liệu (Compare Documents) tìm điểm khác biệt tức thì.</li>
+              <li>Phân quyền khóa vùng chỉnh sửa (Restrict Editing) cho đối tác điền biểu mẫu.</li>
+              <li>Chèn Watermark (Dấu chìm bảo vệ bản quyền) và đặt mật khẩu mã hóa file.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 05</span>
+              <span>BẢNG BIỂU & ĐỒ HỌA</span>
+            </div>
+            <h4>Bố cục Bảng tính, SmartArt & Biểu đồ liên kết</h4>
+            <ul>
+              <li>Làm chủ bảng biểu phức tạp: Gộp ô, lặp lại tiêu đề bảng ở mỗi trang (Repeat Header).</li>
+              <li>Trực quan hóa sơ đồ tổ chức, quy trình làm việc với SmartArt tùy biến.</li>
+              <li>Chèn biểu đồ liên kết động từ Excel (tự động cập nhật khi số liệu Excel thay đổi).</li>
+              <li>Căn chỉnh hình ảnh không bao giờ bị nhảy lung tung khi gõ thêm chữ.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 06</span>
+              <span>THỰC HÀNH HỒ SƠ THẬT</span>
+            </div>
+            <h4>Xử lý lỗi thực tế & Tối ưu năng suất</h4>
+            <ul>
+              <li>Xử lý lỗi nhảy trang bất thường, lỗi dính chữ, lỗi font chữ khi copy mạng.</li>
+              <li>Hệ thống phím tắt thần tốc giúp tăng 300% tốc độ soạn thảo.</li>
+              <li>Thực hành giải quyết trực tiếp trên bộ hồ sơ/khóa luận của học viên.</li>
+              <li>Hỗ trợ đồng hành sau khóa học qua Zalo giải đáp vướng mắc phát sinh.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-cta-box" data-reveal>
+          <div>
+            <h3>Sẵn sàng làm chủ Microsoft Word ngay hôm nay?</h3>
+            <p>Học 1-kèm-1 online vào khung giờ rảnh của bạn. Thực hành trực tiếp trên file công việc.</p>
+          </div>
+          <a href="dang-ky.html?course=Word" class="btn btn-primary">
+            Đăng ký học khóa Word →
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= CHI TIẾT KHÓA EXCEL ================= -->
+      <div class="course-detail-panel" id="detail-excel" style="--panel-color: var(--excel);">
+        <div class="syllabus-hero" data-reveal>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; flex-wrap: wrap;">
+            <div>
+              <span class="eyebrow" style="color: var(--excel); border-color: rgba(var(--excel-rgb), 0.3); background: rgba(var(--excel-rgb), 0.1);">Chương trình chi tiết</span>
+              <h2 style="margin-top: 0.2em;">Khóa học Microsoft Excel: Xử lý Dữ liệu & Báo cáo Quản trị Động</h2>
+              <p class="muted" style="margin-top: 0.5em; max-width: 800px;">
+                Từ chuẩn hóa dữ liệu thô, làm chủ các hàm tính toán phức tạp đến xây dựng hệ thống báo cáo Dashboard tự động, giúp bạn tiết kiệm hàng giờ xử lý số liệu mỗi ngày.
+              </p>
+            </div>
+            <a href="dang-ky.html?course=Excel" class="btn btn-primary" style="background: var(--excel-gradient); box-shadow: 0 4px 20px rgba(52, 211, 153, 0.35);">
+              <i class="fa-solid fa-graduation-cap"></i> Đăng ký khóa Excel
+            </a>
+          </div>
+        </div>
+
+        <div class="syllabus-grid" data-reveal>
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 01</span>
+              <span>CƠ SỞ DỮ LIỆU CHUẨN</span>
+            </div>
+            <h4>Tổ chức CSDL & Kỹ thuật Làm sạch Dữ liệu thô</h4>
+            <ul>
+              <li>Nguyên tắc thiết kế bảng dữ liệu chuẩn phân tích (Database structure).</li>
+              <li>Kỹ thuật tách/gộp họ tên, địa chỉ với Flash Fill và Text to Columns.</li>
+              <li>Lọc dữ liệu trùng lặp (Remove Duplicates), xử lý khoảng trắng thừa (TRIM, CLEAN).</li>
+              <li>Chuẩn hóa định dạng ngày tháng (Date/Time) và số liệu bị lỗi định dạng Text.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 02</span>
+              <span>HÀM LOGIC & TÍNH TOÁN</span>
+            </div>
+            <h4>Hệ thống Hàm Điều kiện & Thống kê đa chiều</h4>
+            <ul>
+              <li>Làm chủ hàm điều kiện logic: IF, AND, OR, lồng nhiều điều kiện phức tạp.</li>
+              <li>Thống kê tổng hợp có điều kiện: SUMIF/SUMIFS, COUNTIF/COUNTIFS, AVERAGEIFS.</li>
+              <li>Hàm làm việc với văn bản & ngày tháng: LEFT, RIGHT, MID, CONCAT, DATEDIF, EDATE.</li>
+              <li>Kỹ thuật bẫy lỗi công thức chuyên nghiệp với IFERROR.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 03</span>
+              <span>TRA CỨU & LIÊN KẾT BẢNG</span>
+            </div>
+            <h4>Kỹ thuật Tra cứu Hiện đại (XLOOKUP, INDEX/MATCH)</h4>
+            <ul>
+              <li>Làm chủ XLOOKUP toàn năng: Tra cứu từ phải sang trái, tra cứu nhiều điều kiện.</li>
+              <li>Bộ đôi thần thánh INDEX + MATCH xử lý dữ liệu lớn siêu nhanh và linh hoạt.</li>
+              <li>Khắc phục triệt để các hạn chế cố hữu của VLOOKUP truyền thống.</li>
+              <li>Tra cứu gần đúng (Approximate Match) tính thuế lũy tiến, tính hoa hồng bán hàng.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 04</span>
+              <span>PIVOT TABLE NÂNG CAO</span>
+            </div>
+            <h4>Phân tích Đa chiều với PivotTable & PivotChart</h4>
+            <ul>
+              <li>Tạo báo cáo tổng hợp doanh số, chi phí chỉ trong 10 giây kéo thả.</li>
+              <li>Nhóm dữ liệu theo năm, quý, tháng tự động (Grouping Dates).</li>
+              <li>Tạo cột tính toán mới trong PivotTable (Calculated Field & Item).</li>
+              <li>Tương tác lọc dữ liệu trực quan bằng bộ lọc Slicer & Timeline chuyên nghiệp.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 05</span>
+              <span>DASHBOARD & TRỰC QUAN HÓA</span>
+            </div>
+            <h4>Xây dựng Dashboard Quản trị & Báo cáo Tương tác</h4>
+            <ul>
+              <li>Thiết lập định dạng có điều kiện (Conditional Formatting) làm nổi bật KPI.</li>
+              <li>Thiết kế biểu đồ chuyên sâu: Biểu đồ kết hợp (Combo Chart), Waterfall, Gauge.</li>
+              <li>Khóa bảo vệ công thức, phân quyền chỉ cho phép nhập liệu vào ô quy định.</li>
+              <li>In ấn bảng tính chuẩn đẹp, vừa vặn 1 trang giấy không bị cắt ngang cột.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 06</span>
+              <span>BÀI TOÁN THỰC CHIẾN</span>
+            </div>
+            <h4>Giải quyết Bài toán Nghiệp vụ theo Ngành nghề</h4>
+            <ul>
+              <li>Kế toán: Bảng tổng hợp công nợ, phiếu thu chi, bảng kê hóa đơn tự động.</li>
+              <li>Nhân sự: Chấm công, tính lương thưởng theo KPI, theo dõi hợp đồng lao động.</li>
+              <li>Kinh doanh: Báo cáo doanh số theo nhân viên/khu vực, dự báo doanh thu.</li>
+              <li>Thực hành giải trực tiếp bài toán trên dữ liệu thật của chính học viên.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-cta-box" data-reveal>
+          <div>
+            <h3>Tự động hóa công việc với Microsoft Excel thực chiến!</h3>
+            <p>Học 1-kèm-1 online với Giảng viên CNTT. Giải bài toán trên file dữ liệu của bạn.</p>
+          </div>
+          <a href="dang-ky.html?course=Excel" class="btn btn-primary" style="background: var(--excel-gradient); box-shadow: 0 4px 20px rgba(52, 211, 153, 0.35);">
+            Đăng ký học khóa Excel →
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= CHI TIẾT KHÓA POWERPOINT ================= -->
+      <div class="course-detail-panel" id="detail-ppt" style="--panel-color: var(--ppt);">
+        <div class="syllabus-hero" data-reveal>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; flex-wrap: wrap;">
+            <div>
+              <span class="eyebrow" style="color: var(--ppt); border-color: rgba(var(--ppt-rgb), 0.3); background: rgba(var(--ppt-rgb), 0.1);">Chương trình chi tiết</span>
+              <h2 style="margin-top: 0.2em;">Khóa học Microsoft PowerPoint: Thiết kế Slide & Thuyết trình Trực quan</h2>
+              <p class="muted" style="margin-top: 0.5em; max-width: 800px;">
+                Nâng tầm bản thuyết trình từ tài liệu khô khan thành tác phẩm trực quan, thẩm mỹ cao và mang tính thuyết phục người nghe, nhà đầu tư, cấp trên.
+              </p>
+            </div>
+            <a href="dang-ky.html?course=PowerPoint" class="btn btn-primary" style="background: var(--ppt-gradient); box-shadow: 0 4px 20px rgba(251, 146, 60, 0.35);">
+              <i class="fa-solid fa-graduation-cap"></i> Đăng ký khóa PPT
+            </a>
+          </div>
+        </div>
+
+        <div class="syllabus-grid" data-reveal>
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 01</span>
+              <span>TƯ DUY THỊ GIÁC & BỐ CỤC</span>
+            </div>
+            <h4>Tư duy Visual Thinking & Bố cục Thiết kế Hiện đại</h4>
+            <ul>
+              <li>Nguyên tắc cô đọng thông tin: Biến đoạn văn dài thành từ khóa ấn tượng.</li>
+              <li>Quy tắc phối màu chuyên nghiệp (60-30-10) theo nhận diện thương hiệu.</li>
+              <li>Nghệ thuật Typography: Phân cấp kích thước chữ và font chữ không bị lỗi tiếng Việt.</li>
+              <li>Ứng dụng hệ thống lưới căn lề (Grid & Guides) cho bố cục cân đối, sang trọng.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 02</span>
+              <span>SLIDE MASTER ĐỒNG BỘ</span>
+            </div>
+            <h4>Thiết lập Khung Mẫu Slide Master Doanh nghiệp</h4>
+            <ul>
+              <li>Tạo bộ khung mẫu Template Slide chuẩn chỉnh cho công ty/tổ chức.</li>
+              <li>Cố định vị trí Logo, Số trang, Tiêu đề chương mục không bị xê dịch.</li>
+              <li>Tạo các Layout slide tùy biến để nhân bản nhanh chóng cho cả team.</li>
+              <li>Tiết kiệm 70% thời gian chuẩn bị slide cho các lần thuyết trình sau.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 03</span>
+              <span>INFOGRAPHIC & BIỂU ĐỒ</span>
+            </div>
+            <h4>Trực quan hóa Dữ liệu bằng Infographic & Hình ảnh</h4>
+            <ul>
+              <li>Biến đổi bảng số liệu nhàm chán thành biểu đồ so sánh sinh động.</li>
+              <li>Kỹ thuật xử lý hình ảnh: Xóa phông nền, cắt ghép hình khối (Merge Shapes).</li>
+              <li>Sử dụng Icon Vector, Mockup thiết bị tăng tính trực quan cho bài nói.</li>
+              <li>Trình bày sơ đồ quy trình, dòng thời gian (Timeline) và ma trận số liệu.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 04</span>
+              <span>MORPH & HIỆU ỨNG ĐỈNH CAO</span>
+            </div>
+            <h4>Kỹ thuật Chuyển động Animation & Hiệu ứng Morph</h4>
+            <ul>
+              <li>Làm chủ hiệu ứng chuyển trang Morph biến hình slide như video Motion Graphic.</li>
+              <li>Nguyên tắc sử dụng Animation tinh tế: Dẫn dắt sự chú ý, không gây rối mắt.</li>
+              <li>Tạo hiệu ứng Zoom Slide (Menu điều hướng tương tác phi tuyến tính).</li>
+              <li>Chèn video, âm thanh nền và tùy chỉnh thời gian chuyển động tự động.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 05</span>
+              <span>ẤN PHẨM & PROFILE BÁO CÁO</span>
+            </div>
+            <h4>Thiết kế E-Profile, Báo cáo & Infographic 1 Trang</h4>
+            <ul>
+              <li>Thiết kế hồ sơ năng lực công ty (Company Profile) chuẩn in ấn & gửi mail.</li>
+              <li>Thiết kế báo cáo định kỳ dạng Slide Document (Slidoc) trực quan.</li>
+              <li>Xuất bản slide sang định dạng PDF chất lượng cao, hình ảnh sắc nét.</li>
+              <li>Xuất slide thành video bài giảng phục vụ đào tạo nội bộ.</li>
+            </ul>
+          </div>
+
+          <div class="module-card">
+            <div class="module-head">
+              <span class="module-badge">MODULE 06</span>
+              <span>KỸ THUẬT THUYẾT TRÌNH</span>
+            </div>
+            <h4>Kỹ năng Trình chiếu & Xử lý Tình huống Thực tế</h4>
+            <ul>
+              <li>Làm chủ chế độ Presenter View: Xem trước slide kế tiếp và ghi chú bí mật.</li>
+              <li>Sử dụng phím tắt điều khiển slide tự tin trước đám đông và hội đồng.</li>
+              <li>Xử lý sự cố máy chiếu không nhận, lỗi font chữ khi mang file sang máy khác.</li>
+              <li>Thực hành chỉnh sửa và hoàn thiện trực tiếp bài thuyết trình của học viên.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="course-cta-box" data-reveal>
+          <div>
+            <h3>Tạo nên những bài thuyết trình thuyết phục & đẳng cấp!</h3>
+            <p>Đăng ký học 1-kèm-1 online, được hướng dẫn thiết kế trực tiếp trên bài thuyết trình của bạn.</p>
+          </div>
+          <a href="dang-ky.html?course=PowerPoint" class="btn btn-primary" style="background: var(--ppt-gradient); box-shadow: 0 4px 20px rgba(251, 146, 60, 0.35);">
+            Đăng ký học khóa PPT →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHẦN 3: LỘ TRÌNH TRIỂN KHAI -->
+  <section class="section container">
+    <span class="eyebrow">Quy trình</span>
+    <h2 style="margin-bottom: var(--space-4)">Lộ trình đào tạo 1-kèm-1</h2>
+    <div class="steps">
+      <div class="step" data-reveal>
+        <span class="step-num"></span>
+        <div>
+          <h3>Tiếp nhận & Đánh giá nhu cầu</h3>
+          <p>Nhắn tin qua Zalo hoặc gọi trực tiếp (091.91.91.804) để trao đổi về những vướng mắc anh/chị đang gặp phải trong công việc hàng ngày.</p>
+        </div>
+      </div>
+      <div class="step" data-reveal>
+        <span class="step-num"></span>
+        <div>
+          <h3>Thống nhất lộ trình & Lịch học</h3>
+          <p>Thiết kế khung chương trình riêng lẻ phù hợp với nền tảng hiện tại. Thời gian học linh động ngoài giờ hành chính qua Zoom/Google Meet.</p>
+        </div>
+      </div>
+      <div class="step" data-reveal>
+        <span class="step-num"></span>
+        <div>
+          <h3>Thực chiến trên hồ sơ công việc</h3>
+          <p>Thay vì sử dụng bài tập mẫu, học viên sẽ được hướng dẫn giải quyết trực tiếp trên hệ thống file dữ liệu thực tế đang làm việc.</p>
+        </div>
+      </div>
+      <div class="step" data-reveal>
+        <span class="step-num"></span>
+        <div>
+          <h3>Nghiệm thu & Đồng hành</h3>
+          <p>Hỗ trợ giải đáp các thắc mắc phát sinh trong công việc kể cả sau khi đã hoàn thành khóa học.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

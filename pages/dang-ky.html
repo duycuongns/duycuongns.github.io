@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng ký học Online — Nguyễn Duy Cương</title>
+<meta name="description" content="Đăng ký học Word, Excel, PowerPoint online 1-kèm-1 cùng Giảng viên Nguyễn Duy Cương.">
+<link rel="icon" type="image/png" href="../images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-head container" data-reveal>
+    <span class="eyebrow">/đăng-ký</span>
+    <h1>Đăng ký học Online 1-Kèm-1</h1>
+    <p>Điền thông tin bên dưới, Duy Cương sẽ liên hệ tư vấn lộ trình học phù hợp với công việc và xếp lịch học linh hoạt theo giờ rảnh của bạn.</p>
+  </section>
+
+  <section class="section container" style="padding-top:0; border-bottom: none;">
+    <div class="contact-grid">
+      <form
+        id="reg-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSd6wssrOSH7aTNcuEuXuJxXDQJDYlhyH3R4Y5TbB7TisnmjUw/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        data-reveal
+      >
+        <div class="field">
+          <label for="name"><i class="fa-solid fa-user"></i> Họ và tên của bạn</label>
+          <input type="text" id="name" name="entry.1411234094" placeholder="Ví dụ: Nguyễn Văn A" required>
+        </div>
+        <div class="field">
+          <label for="phone"><i class="fa-solid fa-phone"></i> Số điện thoại / Zalo</label>
+          <input type="tel" id="phone" name="entry.2058576634" placeholder="09xx xxx xxx" required>
+        </div>
+        <div class="field">
+          <label for="course"><i class="fa-solid fa-book-bookmark"></i> Khóa học quan tâm</label>
+          <select id="course" name="entry.359194300" required>
+            <option value="">— Chọn khóa học muốn học —</option>
+            <option value="Word">Khóa học Microsoft Word (Soạn thảo & Quản lý văn bản)</option>
+            <option value="Excel">Khóa học Microsoft Excel (Xử lý dữ liệu & Báo cáo quản trị)</option>
+            <option value="PowerPoint">Khóa học Microsoft PowerPoint (Thiết kế slide & Thuyết trình)</option>
+            <option value="Combo Word + Excel + PowerPoint">Combo trọn gói 3 môn: Word + Excel + PowerPoint</option>
+            <option value="Khác / chưa rõ, cần tư vấn">Chưa rõ / Cần tư vấn theo bài toán công việc thực tế</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="level"><i class="fa-solid fa-chart-simple"></i> Trình độ hiện tại</label>
+          <select id="level" name="entry.469100780">
+            <option value="">— Chọn trình độ hiện tại —</option>
+            <option value="Mới bắt đầu">Mới bắt đầu / Chưa nắm rõ kỹ năng</option>
+            <option value="Đã biết cơ bản">Đã biết cơ bản / Muốn chuẩn hóa quy trình làm việc</option>
+            <option value="Muốn học nâng cao">Muốn học nâng cao / Giải quyết bài toán lớn</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="note"><i class="fa-solid fa-pen-to-square"></i> Nhu cầu / Vướng mắc cụ thể (nếu có)</label>
+          <textarea id="note" name="entry.109134507" rows="4" placeholder="Ví dụ: Cần làm báo cáo tài chính hàng tháng, cần chuẩn hóa văn bản theo NĐ 30..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1em; font-size: 1rem;">
+          <i class="fa-solid fa-paper-plane"></i> Gửi thông tin đăng ký ngay →
+        </button>
+        <p class="form-note">* Thông tin của bạn được bảo mật tuyệt đối và gửi trực tiếp đến Giảng viên Nguyễn Duy Cương.</p>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="Gửi form ẩn"></iframe>
+      </form>
+
+      <div class="contact-list" data-reveal>
+        <a href="tel:0919191804"><i class="fa-solid fa-phone"></i> 091.91.91.804 (Điện thoại / Zalo)</a>
+        <a href="https://zalo.me/atomins" target="_blank" rel="noopener"><i class="fa-solid fa-comment-dots"></i> Nhắn tin Zalo trực tiếp</a>
+        <a href="khoa-hoc.html"><i class="fa-solid fa-list-check"></i> Xem chi tiết giáo trình từng khóa</a>
+        <a href="che-do-lam-viec.html"><i class="fa-solid fa-calendar-days"></i> Xem lịch nhận dạy theo tuần</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

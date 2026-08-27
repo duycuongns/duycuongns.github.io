@@ -1,0 +1,219 @@
+<header class="site-header macos-dock-wrapper">
+  <!-- Desktop / Tablet macOS Bottom Dock -->
+  <nav class="macos-dock" id="macos-dock" aria-label="Thanh điều hướng macOS Dock">
+    <!-- Logo Item -->
+    <a href="index.html" class="dock-item dock-logo-item" data-nav="index.html" aria-label="Trang chủ - Nguyễn Duy Cương">
+      <div class="dock-icon-box">
+        <div class="logo-avatar-inner">
+          <img src="images/logo.png" alt="Nguyễn Duy Cương" class="logo-img"
+               onload="this.style.opacity=1" 
+               onerror="this.style.opacity=0; this.nextElementSibling.style.display='flex';">
+          <div class="logo-avatar-placeholder" style="display:none;">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+        </div>
+      </div>
+      <span class="dock-label">Duy Cương</span>
+      <span class="dock-tooltip">Trang chủ</span>
+      <span class="dock-dot"></span>
+    </a>
+
+    <div class="dock-divider"></div>
+
+    <!-- Navigation Apps -->
+    <div class="dock-nav-items" id="dock-nav-items">
+      <!-- Trang chủ -->
+      <a href="index.html" class="dock-item" data-nav="index.html">
+        <div class="dock-icon-box">
+          <i class="fa-solid fa-house"></i>
+        </div>
+        <span class="dock-label">Trang chủ</span>
+        <span class="dock-tooltip">Trang chủ</span>
+        <span class="dock-dot"></span>
+      </a>
+
+      <!-- Khóa học -->
+      <a href="pages/khoa-hoc.html" class="dock-item" data-nav="khoa-hoc.html">
+        <div class="dock-icon-box">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span class="dock-label">Khóa học</span>
+        <span class="dock-tooltip">Khóa đào tạo</span>
+        <span class="dock-dot"></span>
+      </a>
+
+      <!-- Giới thiệu -->
+      <a href="pages/about.html" class="dock-item" data-nav="about.html">
+        <div class="dock-icon-box">
+          <i class="fa-solid fa-address-card"></i>
+        </div>
+        <span class="dock-label">Giới thiệu</span>
+        <span class="dock-tooltip">Giới thiệu</span>
+        <span class="dock-dot"></span>
+      </a>
+
+      <!-- Dự án (Dropdown / macOS App Popover) -->
+      <div class="dock-item dock-dropdown" id="dock-projects-dropdown">
+        <button type="button" class="dock-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+          <div class="dock-icon-box">
+            <i class="fa-solid fa-cubes-stacked"></i>
+          </div>
+          <span class="dock-label">Dự án <span class="caret">▴</span></span>
+          <span class="dock-tooltip">Dự án & Tiện ích</span>
+          <span class="dock-dot"></span>
+        </button>
+        <div class="dock-popover-menu">
+          <div class="dock-popover-header">Hệ sinh thái Dự án</div>
+          <a href="pages/che-do-lam-viec.html" class="dock-popover-link" data-nav="che-do-lam-viec.html">
+            <div class="dock-popover-icon blue"><i class="fa-solid fa-calculator"></i></div>
+            <div class="dock-popover-text">
+              <strong>Chế độ làm việc</strong>
+              <small>Tính giờ giảng & NCKH</small>
+            </div>
+          </a>
+          <a href="pages/kiem-tra-ban-quyen.html" class="dock-popover-link" data-nav="kiem-tra-ban-quyen.html">
+            <div class="dock-popover-icon amber"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="dock-popover-text">
+              <strong>Kiểm tra bản quyền</strong>
+              <small>Rà soát Windows & Office</small>
+            </div>
+          </a>
+          <a href="https://ca8eoffice.io.vn/" target="_blank" rel="noopener" class="dock-popover-link">
+            <div class="dock-popover-icon purple"><i class="fa-solid fa-server"></i></div>
+            <div class="dock-popover-text">
+              <strong>Hệ thống Ca8Eoffice</strong>
+              <small>Quản lý lịch trình công tác ↗</small>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Liên hệ -->
+      <a href="pages/contact.html" class="dock-item" data-nav="contact.html">
+        <div class="dock-icon-box">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+        <span class="dock-label">Liên hệ</span>
+        <span class="dock-tooltip">Liên hệ & Hỗ trợ</span>
+        <span class="dock-dot"></span>
+      </a>
+    </div>
+
+    <div class="dock-divider"></div>
+
+    <!-- Actions: Đăng ký & Theme toggle -->
+    <div class="dock-actions">
+      <a href="pages/dang-ky.html" class="dock-item dock-cta-item" data-nav="dang-ky.html">
+        <div class="dock-icon-box cta-icon">
+          <i class="fa-solid fa-rocket"></i>
+        </div>
+        <span class="dock-label cta-label">Đăng ký học</span>
+        <span class="dock-tooltip">Đăng ký học ngay</span>
+        <span class="dock-dot"></span>
+      </a>
+
+      <button type="button" class="dock-item theme-toggle" id="theme-toggle" aria-label="Chuyển chế độ sáng/tối" title="Chuyển chế độ sáng/tối">
+        <div class="dock-icon-box">
+          <i class="fa-solid fa-moon"></i>
+        </div>
+        <span class="dock-tooltip">Giao diện Sáng/Tối</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Left Floating Dock Bar (Nằm gọn bên tay trái góc dưới màn hình điện thoại) -->
+  <div class="mobile-left-dock" id="mobile-left-dock">
+    <button type="button" class="mobile-dock-btn mobile-menu-trigger" id="mobile-menu-trigger" aria-label="Mở Menu điều hướng" aria-expanded="false" aria-controls="mobile-left-drawer">
+      <div class="logo-avatar-mini">
+        <img src="images/logo.png" alt="Duy Cương" class="logo-img"
+             onload="this.style.opacity=1" 
+             onerror="this.style.opacity=0; this.nextElementSibling.style.display='flex';">
+        <div class="logo-avatar-placeholder" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
+      </div>
+      <span class="mobile-menu-text"><i class="fa-solid fa-compass"></i> Menu</span>
+    </button>
+
+    <a href="pages/dang-ky.html" class="mobile-dock-btn mobile-cta-btn" data-nav="dang-ky.html" aria-label="Đăng ký học">
+      <i class="fa-solid fa-rocket"></i>
+    </a>
+
+    <button type="button" class="mobile-dock-btn mobile-theme-btn theme-toggle" aria-label="Chuyển chế độ sáng/tối" title="Chuyển chế độ sáng/tối">
+      <i class="fa-solid fa-moon"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Spatial Left Drawer (Trượt ra từ cạnh trái màn hình) -->
+  <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+  <aside class="mobile-left-drawer" id="mobile-left-drawer" aria-label="Bảng điều hướng di động" aria-hidden="true">
+    <div class="mobile-drawer-head">
+      <div class="mobile-drawer-user">
+        <div class="logo-avatar-inner">
+          <img src="images/logo.png" alt="Nguyễn Duy Cương" class="logo-img"
+               onload="this.style.opacity=1" 
+               onerror="this.style.opacity=0; this.nextElementSibling.style.display='flex';">
+          <div class="logo-avatar-placeholder" style="display:none;"><i class="fa-solid fa-user-tie"></i></div>
+        </div>
+        <div>
+          <strong>Nguyễn Duy Cương</strong>
+          <small>Giảng viên Khoa Ngoại ngữ - Tin học</small>
+        </div>
+      </div>
+      <button type="button" class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Đóng menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div class="mobile-drawer-nav">
+      <a href="index.html" class="mobile-drawer-link" data-nav="index.html">
+        <div class="mobile-drawer-icon"><i class="fa-solid fa-house"></i></div>
+        <span>Trang chủ</span>
+      </a>
+      <a href="pages/khoa-hoc.html" class="mobile-drawer-link" data-nav="khoa-hoc.html">
+        <div class="mobile-drawer-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <span>Khóa học</span>
+      </a>
+      <a href="pages/about.html" class="mobile-drawer-link" data-nav="about.html">
+        <div class="mobile-drawer-icon"><i class="fa-solid fa-address-card"></i></div>
+        <span>Giới thiệu</span>
+      </a>
+
+      <div class="mobile-drawer-group-title">Hệ sinh thái Dự án</div>
+      <a href="pages/che-do-lam-viec.html" class="mobile-drawer-link" data-nav="che-do-lam-viec.html">
+        <div class="mobile-drawer-icon blue"><i class="fa-solid fa-calculator"></i></div>
+        <div>
+          <strong>Chế độ làm việc nhà giáo</strong>
+          <small>Tính giờ giảng & NCKH</small>
+        </div>
+      </a>
+      <a href="pages/kiem-tra-ban-quyen.html" class="mobile-drawer-link" data-nav="kiem-tra-ban-quyen.html">
+        <div class="mobile-drawer-icon amber"><i class="fa-solid fa-shield-halved"></i></div>
+        <div>
+          <strong>Kiểm tra bản quyền</strong>
+          <small>Rà soát Windows & Office</small>
+        </div>
+      </a>
+      <a href="https://ca8eoffice.io.vn/" target="_blank" rel="noopener" class="mobile-drawer-link">
+        <div class="mobile-drawer-icon purple"><i class="fa-solid fa-server"></i></div>
+        <div>
+          <strong>Hệ thống Ca8Eoffice</strong>
+          <small>Quản lý lịch trình công tác ↗</small>
+        </div>
+      </a>
+
+      <div class="mobile-drawer-group-title">Kết nối & Đào tạo</div>
+      <a href="pages/contact.html" class="mobile-drawer-link" data-nav="contact.html">
+        <div class="mobile-drawer-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+        <span>Liên hệ & Hỗ trợ</span>
+      </a>
+      <a href="pages/dang-ky.html" class="mobile-drawer-link mobile-drawer-cta" data-nav="dang-ky.html">
+        <div class="mobile-drawer-icon cta"><i class="fa-solid fa-rocket"></i></div>
+        <span>Đăng ký học Online 1-Kèm-1</span>
+      </a>
+    </div>
+
+    <div class="mobile-drawer-footer">
+      <a href="tel:0919191804" class="btn"><i class="fa-solid fa-phone"></i> 091.91.91.804</a>
+      <a href="https://zalo.me/atomins" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-comment-dots"></i> Zalo</a>
+    </div>
+  </aside>
+</header>
