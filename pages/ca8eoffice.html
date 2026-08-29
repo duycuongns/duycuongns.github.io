@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ thống Ca8Eoffice — Quản lý Lịch công tác Tuần Điện tử | Nguyễn Duy Cương</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <meta name="description"
+    content="CA8-ESchedule: Hệ thống Quản lý Lịch công tác Tuần Điện tử — Thiết kế & phát triển bởi Khoa Ngoại ngữ - Tin học, Học viện Chính trị CAND. Tích hợp AI, bảo mật AES-256, kiểm tra xung đột thông minh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- 1. SPATIAL VISIONOS HERO STAGE -->
+    <section class="container" style="padding-top: var(--space-2); margin-bottom: var(--space-5);" data-reveal>
+      <div class="ca8-hero-stage">
+        
+        <!-- Top Window Bar -->
+        <div class="ca8-hero-top" style="margin-bottom: var(--space-3); padding-bottom: var(--space-2); border-bottom: 1px solid rgba(255,255,255,0.08);">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="window-dots" style="display: flex; gap: 6px;">
+              <span class="w-dot red" style="width:10px; height:10px; border-radius:50%; background:#ef4444; display:inline-block;"></span>
+              <span class="w-dot yellow" style="width:10px; height:10px; border-radius:50%; background:#f59e0b; display:inline-block;"></span>
+              <span class="w-dot green" style="width:10px; height:10px; border-radius:50%; background:#10b981; display:inline-block;"></span>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: var(--fs-xs); color: #94a3b8; font-weight: 600;">
+              <i class="fa-solid fa-server" style="color: #38bdf8; margin-right: 4px;"></i> CA8-ESchedule · v4.0.0 Enterprise Core
+            </span>
+          </div>
+
+          <!-- Bilingual Language Switcher -->
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: 8px;">
+            <div class="ca8-lang-toggle" role="group" aria-label="Language Selector">
+              <button type="button" class="ca8-lang-btn is-active" id="btn-lang-vi" onclick="setLanguage('vi')">
+                🇻🇳 <span>Tiếng Việt</span>
+              </button>
+              <button type="button" class="ca8-lang-btn" id="btn-lang-en" onclick="setLanguage('en')">
+                🇬🇧 <span>English</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Content Grid -->
+        <div class="ca8-hero-inner">
+          <div style="display: flex; flex-direction: row; gap: var(--space-4); align-items: center; width: 100%; flex-wrap: wrap;">
+            <!-- 3D Rotating Logo Shield -->
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+              <div class="ca8-coin-wrapper">
+                <div class="ca8-coin">
+                  <div class="ca8-coin-face">
+                    <span style="font-size: 2rem; color: #ffffff;">8</span>
+                    <span style="font-size: 0.65rem; letter-spacing: 0.15em; color: #7dd3fc; font-weight: 800;">CA8</span>
+                  </div>
+                  <div class="ca8-coin-face ca8-coin-back">
+                    <span style="font-size: 1.5rem; color: #ffffff;"><i class="fa-solid fa-shield-halved"></i></span>
+                    <span style="font-size: 0.6rem; letter-spacing: 0.1em; color: #bfdbfe; font-weight: 800;">EOFFICE</span>
+                  </div>
+                </div>
+              </div>
+              <span class="checker-pill green" style="font-size: 0.7rem; padding: 4px 10px;">
+                <i class="fa-solid fa-circle-check"></i> <span data-i18n="heroBadge">Hệ thống đang hoạt động</span>
+              </span>
+            </div>
+
+            <!-- Title & Information -->
+            <div style="flex: 1; min-width: 280px;">
+              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px;">
+                <h1 style="font-size: var(--fs-2xl); font-weight: 900; letter-spacing: -0.03em; margin: 0; color: #ffffff; text-transform: uppercase;">
+                  CA8-ESchedule
+                </h1>
+                <span style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.08em;">
+                  v4.0.0 Enterprise Edition
+                </span>
+              </div>
+
+              <p style="color: #cbd5e1; font-size: var(--fs-md); line-height: 1.6; margin-bottom: var(--space-3); max-width: 760px; font-weight: 400;" data-i18n="heroDesc">
+                Hệ thống Quản lý Lịch công tác Tuần Điện tử — Thiết kế và phát triển bởi <strong style="color: #ffffff;">Khoa Ngoại ngữ - Tin học</strong>, Học viện Chính trị Công an nhân dân. Nền tảng số hóa quy trình đăng ký, thẩm định và công bố lịch làm việc thông minh.
+              </p>
+
+              <!-- Live Stats Counter -->
+              <div class="ca8-stats-row">
+                <div class="ca8-stat-item">
+                  <div class="ca8-stat-val">300+</div>
+                  <div class="ca8-stat-lbl" data-i18n="statUsers">Cán bộ & Giảng viên</div>
+                </div>
+                <div class="ca8-stat-item" style="border-left-color: #818cf8;">
+                  <div class="ca8-stat-val" style="color: #818cf8;">2.000+</div>
+                  <div class="ca8-stat-lbl" data-i18n="statInteractions">Tương tác mỗi tuần</div>
+                </div>
+                <div class="ca8-stat-item" style="border-left-color: #34d399;">
+                  <div class="ca8-stat-val" style="color: #34d399;">99.9%</div>
+                  <div class="ca8-stat-lbl" data-i18n="statRealtime">Cập nhật công việc</div>
+                </div>
+              </div>
+
+              <!-- Action CTAs -->
+              <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--space-4);">
+                <a href="https://ca8eoffice.io.vn/" target="_blank" rel="noopener" class="btn btn-primary"
+                  style="background: linear-gradient(135deg, #0284c7, #2563eb, #7c3aed); box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5); font-weight: 700;">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> <span data-i18n="btnLiveSystem">Truy cập Ca8Eoffice Live</span>
+                </a>
+                <a href="#bao-mat-he-thong" class="btn" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); color: #ffffff;">
+                  <i class="fa-solid fa-shield-halved" style="color: #38bdf8;"></i> <span data-i18n="btnSecurityDocs">Phân tích bảo mật & Kiến trúc</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. HỆ THỐNG VAI TRÒ (ROLE-BASED ACCESS SYSTEM) -->
+    <section class="section container" style="padding-top: var(--space-2);" data-reveal>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-users-gear"></i> <span data-i18n="rolesEyebrow">PHÂN QUYỀN MA TRẬN</span></span>
+          <h2 data-i18n="rolesTitle">Hệ thống 5 Vai trò Người dùng</h2>
+          <p class="section-desc" data-i18n="rolesSubtitle">
+            Mô hình phân quyền đa cấp độ đảm bảo tính bảo mật, minh bạch và đúng thẩm quyền trách nhiệm trong cơ quan, đơn vị.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-5" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3);">
+        
+        <!-- VAI TRÒ 1: CÁN BỘ -->
+        <div class="ca8-role-card">
+          <div class="ca8-role-icon">👤</div>
+          <div class="ca8-role-title" data-i18n="role1Name">Cán bộ</div>
+          <div class="ca8-role-desc" data-i18n="role1Desc">
+            Đăng ký lịch công tác tuần cho đơn vị, tự động điền danh sách thành phần và kiểm tra xung đột thời gian thực.
+          </div>
+          <span class="checker-pill" style="margin-top: auto; font-size: 0.65rem; align-self: flex-start;">Level 1 · Register</span>
+        </div>
+
+        <!-- VAI TRÒ 2: TRƯỞNG ĐƠN VỊ -->
+        <div class="ca8-role-card" style="border-color: rgba(56, 189, 248, 0.3);">
+          <div class="ca8-role-icon">🏢</div>
+          <div class="ca8-role-title" style="color: var(--brand);" data-i18n="role2Name">Trưởng đơn vị</div>
+          <div class="ca8-role-desc" data-i18n="role2Desc">
+            Xem xét, phê duyệt hoặc gửi trả yêu cầu bổ sung thông tin lịch cấp đơn vị trước khi gửi lên Văn phòng Học viện.
+          </div>
+          <span class="checker-pill green" style="margin-top: auto; font-size: 0.65rem; align-self: flex-start;">Level 2 · Unit Head</span>
+        </div>
+
+        <!-- VAI TRÒ 3: VĂN PHÒNG -->
+        <div class="ca8-role-card" style="border-color: rgba(129, 140, 248, 0.3);">
+          <div class="ca8-role-icon">🎖️</div>
+          <div class="ca8-role-title" style="color: #818cf8;" data-i18n="role3Name">Văn phòng</div>
+          <div class="ca8-role-desc" data-i18n="role3Desc">
+            Tổng hợp, rà soát xung đột địa điểm phòng họp, ghép nối lịch toàn trường và dự thảo lịch trình gửi Ban Giám đốc.
+          </div>
+          <span class="checker-pill" style="margin-top: auto; font-size: 0.65rem; align-self: flex-start; background: rgba(129, 140, 248, 0.15); color: #818cf8;">Level 3 · Coordinator</span>
+        </div>
+
+        <!-- VAI TRÒ 4: BAN GIÁM ĐỐC -->
+        <div class="ca8-role-card" style="border-color: rgba(251, 146, 60, 0.3);">
+          <div class="ca8-role-icon">⭐</div>
+          <div class="ca8-role-title" style="color: #fb923c;" data-i18n="role4Name">Ban Giám đốc</div>
+          <div class="ca8-role-desc" data-i18n="role4Desc">
+            Thẩm định tối cao, phê duyệt chính thức để phát hành lịch tuần điện tử công khai trên toàn hệ thống mạng nội bộ.
+          </div>
+          <span class="checker-pill orange" style="margin-top: auto; font-size: 0.65rem; align-self: flex-start;">Level 4 · Executive</span>
+        </div>
+
+        <!-- VAI TRÒ 5: QUẢN TRỊ VIÊN -->
+        <div class="ca8-role-card" style="border-color: rgba(244, 63, 94, 0.3);">
+          <div class="ca8-role-icon">🛠️</div>
+          <div class="ca8-role-title" style="color: #f43f5e;" data-i18n="role5Name">Quản trị viên</div>
+          <div class="ca8-role-desc" data-i18n="role5Desc">
+            Toàn quyền cấu hình, quản lý người dùng, giả lập vai trò (Role Emulation), sao lưu AES-256 và giám sát an ninh.
+          </div>
+          <span class="checker-pill" style="margin-top: auto; font-size: 0.65rem; align-self: flex-start; background: rgba(244, 63, 94, 0.15); color: #f43f5e;">System Admin</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. QUY TRÌNH NGHIỆP VỤ (4-STAGE WORKFLOW) -->
+    <section class="section container" data-reveal>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-network-wired"></i> <span data-i18n="wfEyebrow">QUY TRÌNH TỰ ĐỘNG</span></span>
+          <h2 data-i18n="wfTitle">Quy trình Phê duyệt 4 Cấp Chuẩn hóa</h2>
+          <p class="section-desc" data-i18n="wfSubtitle">
+            Quy trình khép kín, tinh gọn từ khâu lập kế hoạch đến khi công bố lịch tuần, loại bỏ hoàn toàn giấy tờ thủ công.
+          </p>
+        </div>
+      </div>
+
+      <div class="ca8-workflow-box">
+        <div class="ca8-workflow-grid">
+          
+          <!-- BƯỚC 1 -->
+          <div class="ca8-wf-card">
+            <div class="ca8-wf-badge" style="background: linear-gradient(135deg, #0284c7, #2563eb);">01</div>
+            <h3 style="font-size: var(--fs-sm); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="wf1Title">
+              ✍️ Đăng ký Lịch
+            </h3>
+            <div class="ca8-wf-text-box">
+              <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6; margin: 0;" data-i18n="wf1Desc">
+                Cán bộ nhập thông tin lịch công tác. Hệ thống tự động kiểm tra trùng lặp khung giờ và địa điểm phòng họp.
+              </p>
+            </div>
+          </div>
+
+          <!-- BƯỚC 2 -->
+          <div class="ca8-wf-card">
+            <div class="ca8-wf-badge" style="background: linear-gradient(135deg, #7c3aed, #6366f1);">02</div>
+            <h3 style="font-size: var(--fs-sm); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="wf2Title">
+              🏢 Trưởng Đơn Vị Duyệt
+            </h3>
+            <div class="ca8-wf-text-box">
+              <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6; margin: 0;" data-i18n="wf2Desc">
+                Trưởng đơn vị kiểm tra nội dung, ký duyệt chuyển tiếp hoặc gửi trả kèm lý do cần điều chỉnh.
+              </p>
+            </div>
+          </div>
+
+          <!-- BƯỚC 3 -->
+          <div class="ca8-wf-card">
+            <div class="ca8-wf-badge" style="background: linear-gradient(135deg, #4f46e5, #0284c7);">03</div>
+            <h3 style="font-size: var(--fs-sm); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="wf3Title">
+              🎖️ Văn Phòng Xử Lý
+            </h3>
+            <div class="ca8-wf-text-box">
+              <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6; margin: 0;" data-i18n="wf3Desc">
+                Văn phòng điều phối lịch toàn Học viện, tổng hợp lịch trực ban chỉ huy và trình Ban Giám đốc phê duyệt.
+              </p>
+            </div>
+          </div>
+
+          <!-- BƯỚC 4 -->
+          <div class="ca8-wf-card">
+            <div class="ca8-wf-badge" style="background: linear-gradient(135deg, #059669, #10b981);">04</div>
+            <h3 style="font-size: var(--fs-sm); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="wf4Title">
+              ⭐ Ban Giám Đốc Duyệt
+            </h3>
+            <div class="ca8-wf-text-box">
+              <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6; margin: 0;" data-i18n="wf4Desc">
+                Ban Giám đốc phê duyệt chính thức. Lịch tuần được công bố tức thời trên hệ thống và cho phép xuất file in A4.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Trạng thái vòng đời của một sự kiện lịch -->
+        <div class="ca8-status-chips-row">
+          <div class="ca8-status-chip"><span class="dot" style="background: #facc15;"></span> <span data-i18n="stPending">Chờ duyệt (Pending)</span></div>
+          <div class="ca8-status-chip"><span class="dot" style="background: #60a5fa;"></span> <span data-i18n="stUnitApproved">Đơn vị duyệt (Dept Approved)</span></div>
+          <div class="ca8-status-chip"><span class="dot" style="background: #c084fc;"></span> <span data-i18n="stPendingBoard">Chờ Ban GĐ (Pending Board)</span></div>
+          <div class="ca8-status-chip"><span class="dot" style="background: #34d399;"></span> <span data-i18n="stApproved">Đã duyệt (Approved)</span></div>
+          <div class="ca8-status-chip"><span class="dot" style="background: #f87171;"></span> <span data-i18n="stRejected">Từ chối (Rejected)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PHƯƠNG THỨC HIỂN THỊ LỊCH ĐA DẠNG (MULTI-VIEW DISPLAY) -->
+    <section class="section container" data-reveal>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-table-cells"></i> <span data-i18n="viewEyebrow">TRẢI NGHIỆM TRỰC QUAN</span></span>
+          <h2 data-i18n="viewTitle">3 Chế độ Xem Lịch Linh hoạt</h2>
+          <p class="section-desc" data-i18n="viewSubtitle">
+            Giao diện tự động thích ứng với nhiều loại thiết bị: màn hình máy tính để bàn, máy tính bảng và điện thoại di động.
+          </p>
+        </div>
+      </div>
+
+      <!-- View Selector Tabs -->
+      <div class="ca8-view-tab-nav" role="tablist">
+        <button type="button" class="ca8-view-tab-btn is-active" id="tab-btn-table" onclick="switchCa8View('table')" role="tab" aria-selected="true">
+          <i class="fa-solid fa-table"></i> <span data-i18n="tabTable">Chế độ Bảng (Table View)</span>
+        </button>
+        <button type="button" class="ca8-view-tab-btn" id="tab-btn-calendar" onclick="switchCa8View('calendar')" role="tab" aria-selected="false">
+          <i class="fa-solid fa-calendar-days"></i> <span data-i18n="tabCalendar">Chế độ Lịch (Calendar View)</span>
+        </button>
+        <button type="button" class="ca8-view-tab-btn" id="tab-btn-timeline" onclick="switchCa8View('timeline')" role="tab" aria-selected="false">
+          <i class="fa-solid fa-timeline"></i> <span data-i18n="tabTimeline">Chế độ Timeline (Timeline View)</span>
+        </button>
+      </div>
+
+      <!-- 1. Panel: Table View Mockup -->
+      <div class="ca8-view-preview-panel is-active" id="ca8-panel-table">
+        <div class="ca8-view-head">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-table" style="color: var(--brand);"></i>
+            <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="pvTableTitle">Lịch công tác tuần — Bảng chi tiết PC</strong>
+          </div>
+          <div style="font-size: var(--fs-xs); color: var(--text-muted);">
+            <i class="fa-regular fa-clock"></i> <span data-i18n="pvTableNote">Tối ưu cho hiển thị màn hình lớn, máy in A4</span>
+          </div>
+        </div>
+        <div style="padding: var(--space-3); overflow-x: auto;">
+          <table class="ca8-table-mockup">
+            <thead>
+              <tr>
+                <th style="width: 140px;" data-i18n="thTime">Thời gian</th>
+                <th data-i18n="thContent">Nội dung công tác</th>
+                <th style="width: 160px;" data-i18n="thLocation">Địa điểm</th>
+                <th style="width: 150px;" data-i18n="thHost">Chủ trì</th>
+                <th style="width: 180px;" data-i18n="thAttendees">Thành phần</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Thứ Hai</strong><br><small style="color: var(--text-muted);">08:00 - 10:30</small></td>
+                <td>
+                  <span class="checker-pill" style="font-size: 0.65rem; background: rgba(56, 189, 248, 0.15); color: #38bdf8; margin-bottom: 4px; display: inline-block;">Họp giao ban</span>
+                  <div>Họp giao ban công tác tuần Lãnh đạo Học viện & Thủ trưởng các đơn vị</div>
+                </td>
+                <td><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Phòng họp Hội đồng</td>
+                <td>Đ/c Giám đốc</td>
+                <td>Ban Giám đốc, Trưởng các Khoa, Phòng, Viện</td>
+              </tr>
+              <tr>
+                <td><strong>Thứ Ba</strong><br><small style="color: var(--text-muted);">14:00 - 16:30</small></td>
+                <td>
+                  <span class="checker-pill green" style="font-size: 0.65rem; margin-bottom: 4px; display: inline-block;">Khoa học</span>
+                  <div>Hội thảo chuyên đề: Ứng dụng Trí tuệ nhân tạo và Bảo vệ dữ liệu trong CAND</div>
+                </td>
+                <td><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Hội trường A1</td>
+                <td>Đ/c Phó Giám đốc</td>
+                <td>Khoa Ngoại ngữ - Tin học, Các nhà khoa học</td>
+              </tr>
+              <tr>
+                <td><strong>Thứ Tư</strong><br><small style="color: var(--text-muted);">07:30 - 11:30</small></td>
+                <td>
+                  <span class="checker-pill orange" style="font-size: 0.65rem; margin-bottom: 4px; display: inline-block;">Đào tạo</span>
+                  <div>Giảng dạy môn Tin học văn phòng & Kỹ năng số nâng cao (Lớp K8)</div>
+                </td>
+                <td><i class="fa-solid fa-location-dot" style="color: #ef4444;"></i> Phòng máy 204</td>
+                <td>ThS. Nguyễn Duy Cương</td>
+                <td>Học viên lớp K8 Đào tạo đại học</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 2. Panel: Calendar View Mockup -->
+      <div class="ca8-view-preview-panel" id="ca8-panel-calendar">
+        <div class="ca8-view-head">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-calendar-days" style="color: #818cf8;"></i>
+            <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="pvCalendarTitle">Chế độ Lịch tháng & Mật độ Công việc</strong>
+          </div>
+          <div style="font-size: var(--fs-xs); color: var(--text-muted);">
+            <i class="fa-solid fa-mobile-screen"></i> <span data-i18n="pvCalendarNote">Tối ưu cho thiết bị di động & nhận diện trực quan nhanh</span>
+          </div>
+        </div>
+        <div style="padding: var(--space-3);">
+          <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center;">
+            <div style="font-weight: 700; font-size: var(--fs-xs); color: var(--text-muted); padding-bottom: 4px;">T2</div>
+            <div style="font-weight: 700; font-size: var(--fs-xs); color: var(--text-muted); padding-bottom: 4px;">T3</div>
+            <div style="font-weight: 700; font-size: var(--fs-xs); color: var(--text-muted); padding-bottom: 4px;">T4</div>
+            <div style="font-weight: 700; font-size: var(--fs-xs); color: var(--text-muted); padding-bottom: 4px;">T5</div>
+            <div style="font-weight: 700; font-size: var(--fs-xs); color: var(--text-muted); padding-bottom: 4px;">T6</div>
+            <div style="font-weight: 700; font-size: var(--fs-xs); color: var(--text-muted); padding-bottom: 4px;">T7</div>
+            <div style="font-weight: 700; font-size: var(--fs-xs); color: var(--text-muted); padding-bottom: 4px;">CN</div>
+
+            <!-- Day cells -->
+            <div style="background: var(--surface-2); border-radius: 10px; padding: 12px 4px; border: 1px solid var(--border-soft);">
+              <span style="font-weight: 800; font-size: var(--fs-xs);">01</span>
+              <div style="display: flex; justify-content: center; gap: 3px; margin-top: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #38bdf8;"></span>
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #34d399;"></span>
+              </div>
+            </div>
+            <div style="background: var(--surface-2); border-radius: 10px; padding: 12px 4px; border: 1px solid var(--border-soft);">
+              <span style="font-weight: 800; font-size: var(--fs-xs);">02</span>
+              <div style="display: flex; justify-content: center; gap: 3px; margin-top: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #fb923c;"></span>
+              </div>
+            </div>
+            <div style="background: var(--surface-2); border-radius: 10px; padding: 12px 4px; border: 1px solid var(--border-soft); border-color: var(--brand);">
+              <span style="font-weight: 800; font-size: var(--fs-xs); color: var(--brand);">03</span>
+              <div style="display: flex; justify-content: center; gap: 3px; margin-top: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #38bdf8;"></span>
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #818cf8;"></span>
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #34d399;"></span>
+              </div>
+            </div>
+            <div style="background: var(--surface-2); border-radius: 10px; padding: 12px 4px; border: 1px solid var(--border-soft);">
+              <span style="font-weight: 800; font-size: var(--fs-xs);">04</span>
+              <div style="display: flex; justify-content: center; gap: 3px; margin-top: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #38bdf8;"></span>
+              </div>
+            </div>
+            <div style="background: var(--surface-2); border-radius: 10px; padding: 12px 4px; border: 1px solid var(--border-soft);">
+              <span style="font-weight: 800; font-size: var(--fs-xs);">05</span>
+              <div style="display: flex; justify-content: center; gap: 3px; margin-top: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #34d399;"></span>
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #f43f5e;"></span>
+              </div>
+            </div>
+            <div style="background: var(--surface-2); border-radius: 10px; padding: 12px 4px; border: 1px solid var(--border-soft); opacity: 0.7;">
+              <span style="font-weight: 800; font-size: var(--fs-xs);">06</span>
+              <div style="display: flex; justify-content: center; gap: 3px; margin-top: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #f59e0b;"></span>
+              </div>
+            </div>
+            <div style="background: var(--surface-2); border-radius: 10px; padding: 12px 4px; border: 1px solid var(--border-soft); opacity: 0.7;">
+              <span style="font-weight: 800; font-size: var(--fs-xs);">07</span>
+              <div style="display: flex; justify-content: center; gap: 3px; margin-top: 6px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #f59e0b;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Panel: Timeline View Mockup -->
+      <div class="ca8-view-preview-panel" id="ca8-panel-timeline">
+        <div class="ca8-view-head">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-timeline" style="color: #34d399;"></i>
+            <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="pvTimelineTitle">Chế độ Timeline 24H Trục thời gian thực</strong>
+          </div>
+          <div style="font-size: var(--fs-xs); color: var(--text-muted);">
+            <i class="fa-solid fa-bolt"></i> <span data-i18n="pvTimelineNote">Kiểm soát xung đột khung giờ và điều phối phòng họp</span>
+          </div>
+        </div>
+        <div style="padding: var(--space-3); display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 12px; align-items: center; border-left: 3px solid #38bdf8; padding-left: 12px; background: var(--surface-2); padding: 10px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+            <span style="font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-xs); color: #38bdf8; min-width: 90px;">08:00 - 09:30</span>
+            <div style="flex: 1;">
+              <div style="font-weight: 700; font-size: var(--fs-sm); color: var(--text-bright);">Họp giao ban Khoa Ngoại ngữ - Tin học</div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Phòng làm việc Khoa · Chủ trì: Đ/c Trưởng khoa</div>
+            </div>
+            <span class="checker-pill green" style="font-size: 0.65rem;">Đã duyệt</span>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: center; border-left: 3px solid #818cf8; padding-left: 12px; background: var(--surface-2); padding: 10px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+            <span style="font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-xs); color: #818cf8; min-width: 90px;">10:00 - 11:30</span>
+            <div style="flex: 1;">
+              <div style="font-weight: 700; font-size: var(--fs-sm); color: var(--text-bright);">Nghiệm thu Đề tài Nghiên cứu Khoa học cấp Cơ sở</div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Phòng họp số 2 · Chủ trì: Hội đồng Khoa học</div>
+            </div>
+            <span class="checker-pill green" style="font-size: 0.65rem;">Đã duyệt</span>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: center; border-left: 3px solid #34d399; padding-left: 12px; background: var(--surface-2); padding: 10px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;">
+            <span style="font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-xs); color: #34d399; min-width: 90px;">14:00 - 17:00</span>
+            <div style="flex: 1;">
+              <div style="font-weight: 700; font-size: var(--fs-sm); color: var(--text-bright);">Tập huấn Kỹ năng An toàn Dữ liệu & Pháp lý AI</div>
+              <div style="font-size: var(--fs-xs); color: var(--text-muted);"><i class="fa-solid fa-location-dot"></i> Hội trường Trung tâm · Báo cáo viên: ThS. Nguyễn Duy Cương</div>
+            </div>
+            <span class="checker-pill green" style="font-size: 0.65rem;">Đã duyệt</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 5. TÍNH NĂNG VƯỢT TRỘI (KEY OUTSTANDING FEATURES) -->
+    <section class="section container" data-reveal>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles"></i> <span data-i18n="featEyebrow">NỀN TẢNG CÔNG NGHỆ</span></span>
+          <h2 data-i18n="featTitle">Tính năng Vượt trội của Ca8Eoffice</h2>
+          <p class="section-desc" data-i18n="featSubtitle">
+            Được xây dựng từ nhu cầu thực tiễn của công tác quản trị hành chính hiện đại, tối ưu cho môi trường giáo dục và cơ quan đơn vị.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-3);">
+        
+        <div class="card" style="padding: var(--space-3);">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-1);">⚡</div>
+          <h3 style="font-size: var(--fs-base); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="f1Title">
+            Phát hiện Xung đột Thông minh
+          </h3>
+          <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6;" data-i18n="f1Desc">
+            Hệ thống tự động phát hiện và cảnh báo ngay lập tức khi trùng địa điểm phòng họp, trùng lịch chủ trì hoặc người tham gia.
+          </p>
+        </div>
+
+        <div class="card" style="padding: var(--space-3);">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-1);">🛡️</div>
+          <h3 style="font-size: var(--fs-base); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="f2Title">
+            Bảo mật & Mã hóa AES-256
+          </h3>
+          <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6;" data-i18n="f2Desc">
+            Sao lưu tự động theo lịch định kỳ, mã hóa toàn bộ dữ liệu lịch và bảo mật mật khẩu bằng thuật toán PBKDF2 100.000 vòng lặp.
+          </p>
+        </div>
+
+        <div class="card" style="padding: var(--space-3);">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-1);">🤖</div>
+          <h3 style="font-size: var(--fs-base); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="f3Title">
+            Trợ lý Ảo AI Tích hợp
+          </h3>
+          <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6;" data-i18n="f3Desc">
+            Chatbot AI hỗ trợ tra cứu lịch nhanh bằng ngôn ngữ tự nhiên, thống kê báo cáo công tác và gợi ý sắp xếp lịch trình thông minh.
+          </p>
+        </div>
+
+        <div class="card" style="padding: var(--space-3);">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-1);">🛠️</div>
+          <h3 style="font-size: var(--fs-base); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="f4Title">
+            Giả lập Vai trò Quản trị
+          </h3>
+          <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6;" data-i18n="f4Desc">
+            Tính năng Role Emulation cho phép Quản trị viên trải nghiệm và kiểm tra giao diện dưới góc nhìn của Cán bộ, Trưởng đơn vị hoặc Ban Giám đốc.
+          </p>
+        </div>
+
+        <div class="card" style="padding: var(--space-3);">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-1);">📥</div>
+          <h3 style="font-size: var(--fs-base); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="f5Title">
+            Xuất Google Calendar & In A4
+          </h3>
+          <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6;" data-i18n="f5Desc">
+            Đồng bộ hóa 1-chạm vào Google Calendar cá nhân và tự động căn lề, xuất bản in lịch tuần định dạng A4 chuẩn văn bản hành chính.
+          </p>
+        </div>
+
+        <div class="card" style="padding: var(--space-3);">
+          <div style="font-size: 2.2rem; margin-bottom: var(--space-1);">👥</div>
+          <h3 style="font-size: var(--fs-base); font-weight: 800; text-transform: uppercase; color: var(--text-bright);" data-i18n="f6Title">
+            Quản lý Tiến độ & Lịch Đơn vị
+          </h3>
+          <p style="font-size: var(--fs-xs); color: var(--text-muted); line-height: 1.6;" data-i18n="f6Desc">
+            Phân hệ theo dõi tiến độ công việc nội bộ từng khoa phòng, import lịch giảng dạy và quản lý lịch trực ban chỉ huy tuần.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. PHÂN TÍCH AN TOÀN & BẢO MẬT CHUYÊN SÂU (CYBERSECURITY COMMAND CENTER) -->
+    <section class="section container" id="bao-mat-he-thong" style="scroll-margin-top: 80px;" data-reveal>
+      
+      <!-- Security Center Hero Header -->
+      <div class="ca8-security-hero" style="margin-bottom: var(--space-4);">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto; position: relative; z-index: 2;">
+          <span style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 14px; background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: var(--radius-full); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #38bdf8; margin-bottom: 12px;">
+            🛡️ <span data-i18n="secTag">TÀI LIỆU AN TOÀN HỆ THỐNG</span>
+          </span>
+          <h2 style="font-size: var(--fs-2xl); font-weight: 900; letter-spacing: -0.02em; color: #ffffff; text-transform: uppercase; margin-bottom: 8px;" data-i18n="secHeading">
+            PHÂN TÍCH BẢO MẬT HỆ THỐNG CA8EOFFICE
+          </h2>
+          <p style="color: #94a3b8; font-size: var(--fs-sm); line-height: 1.6;" data-i18n="secIntro">
+            Cơ chế bảo vệ dữ liệu đa lớp — Từ thuật toán băm mật khẩu PBKDF2 đến xác thực Token JWT và phòng chống các nguy cơ tấn công mạng.
+          </p>
+        </div>
+
+        <!-- 4 Security Pillar Links -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: var(--space-4);">
+          <a href="#sec-pbkdf2" class="ca8-sec-nav-card">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🔑</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; display: block;" data-i18n="secNav1Title">PBKDF2 Hashing</strong>
+            <span style="font-size: 0.7rem; color: #94a3b8;" data-i18n="secNav1Sub">100.000 vòng lặp + Salt</span>
+          </a>
+          <a href="#sec-jwt" class="ca8-sec-nav-card">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🎫</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; display: block;" data-i18n="secNav2Title">JWT Token</strong>
+            <span style="font-size: 0.7rem; color: #94a3b8;" data-i18n="secNav2Sub">Vé thông hành số 8 giờ</span>
+          </a>
+          <a href="#sec-ratelimit" class="ca8-sec-nav-card">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🚦</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; display: block;" data-i18n="secNav3Title">Rate Limiting</strong>
+            <span style="font-size: 0.7rem; color: #94a3b8;" data-i18n="secNav3Sub">Chống Brute-force & Spam</span>
+          </a>
+          <a href="#sec-defense" class="ca8-sec-nav-card">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🏰</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; display: block;" data-i18n="secNav4Title">7 Lớp Phòng Thủ</strong>
+            <span style="font-size: 0.7rem; color: #94a3b8;" data-i18n="secNav4Sub">Defense-in-Depth</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- PHẦN 1: PBKDF2 -->
+      <div id="sec-pbkdf2" style="margin-bottom: var(--space-4); scroll-margin-top: 90px;" class="card" data-reveal>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-3);">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #0284c7; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem;">01</div>
+          <h3 style="font-size: var(--fs-lg); margin: 0; color: var(--text-bright);" data-i18n="p1Title">
+            PBKDF2 — Thuật toán Mã hóa Mật khẩu Bất khả nghịch
+          </h3>
+        </div>
+
+        <div class="grid-2" style="gap: var(--space-3); align-items: start;">
+          <div>
+            <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: var(--space-3); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: var(--space-2);">
+              <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #10b981; letter-spacing: 0.1em; display: block; margin-bottom: 4px;" data-i18n="p1ExpTag">
+                📖 GIẢI THÍCH NGUYÊN LÝ
+              </span>
+              <p style="font-size: var(--fs-xs); color: var(--text); line-height: 1.65; margin: 0; font-style: italic;" data-i18n="p1ExpText">
+                Hệ thống nghiền nát mật khẩu qua máy xay mật mã học 100.000 lần liên tiếp rồi chỉ lưu chuỗi băm cuối cùng. Kẻ tấn công cho dù có chiếm được toàn bộ cơ sở dữ liệu cũng không thể tính toán ngược lại mật khẩu gốc. Mỗi tài khoản sở hữu một "gia vị bí mật" (Salt) ngẫu nhiên 16-bytes độc lập.
+              </p>
+            </div>
+
+            <!-- Code Snippet -->
+            <div class="ca8-terminal-box">
+              <div style="color: #64748b; margin-bottom: 4px;">// Node.js Cryptographic Implementation</div>
+              <div><span style="color: #c084fc;">const</span> salt = crypto.<span style="color: #38bdf8;">randomBytes</span>(<span style="color: #f59e0b;">16</span>).<span style="color: #38bdf8;">toString</span>(<span style="color: #34d399;">'hex'</span>);</div>
+              <div><span style="color: #c084fc;">const</span> hash = crypto.<span style="color: #38bdf8;">pbkdf2Sync</span>(password, salt, <span style="color: #f59e0b;">100_000</span>, <span style="color: #f59e0b;">32</span>, <span style="color: #34d399;">'sha256'</span>);</div>
+            </div>
+          </div>
+
+          <!-- Comparative Bars -->
+          <div style="background: var(--surface-2); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+            <h4 style="font-size: var(--fs-xs); text-transform: uppercase; font-weight: 800; margin-bottom: 12px; color: var(--text-bright);" data-i18n="p1MeterTitle">
+              ĐÁNH GIÁ ĐỘ AN TOÀN TRƯỚC TẤN CÔNG DICTIONARY
+            </h4>
+
+            <div style="margin-bottom: 10px;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700; margin-bottom: 2px;">
+                <span>MD5 (Cũ, không an toàn)</span>
+                <span style="color: #f43f5e;" data-i18n="mMD5">Bị bẻ khóa trong 1 giây</span>
+              </div>
+              <div class="ca8-power-bar-wrapper">
+                <div class="ca8-power-bar" style="width: 100%; background: #f43f5e;"></div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700; margin-bottom: 2px;">
+                <span>SHA-256 Đơn thuần</span>
+                <span style="color: #f59e0b;" data-i18n="mSHA">Bị bẻ khóa trong vài giờ</span>
+              </div>
+              <div class="ca8-power-bar-wrapper">
+                <div class="ca8-power-bar" style="width: 70%; background: #f59e0b;"></div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.7rem; font-weight: 700; margin-bottom: 2px;">
+                <span style="color: #38bdf8; font-weight: 800;">PBKDF2 (100.000 Vòng Lặp)</span>
+                <span style="color: #10b981; font-weight: 800;" data-i18n="mPBKDF2">Chuẩn Quốc gia — Cực kỳ An toàn</span>
+              </div>
+              <div class="ca8-power-bar-wrapper">
+                <div class="ca8-power-bar" style="width: 15%; background: #10b981;"></div>
+              </div>
+            </div>
+
+            <p style="font-size: 0.7rem; color: var(--text-muted); font-style: italic; margin-top: 10px; margin-bottom: 0;" data-i18n="p1Footnote">
+              * PBKDF2 với 100.000 vòng lặp khiến chi phí tính toán phần cứng của kẻ tấn công tăng theo cấp số nhân, vô hiệu hóa hoàn toàn phương pháp brute-force ngoại tuyến.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHẦN 2: JWT -->
+      <div id="sec-jwt" style="margin-bottom: var(--space-4); scroll-margin-top: 90px;" class="card" data-reveal>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-3);">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #0891b2; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem;">02</div>
+          <h3 style="font-size: var(--fs-lg); margin: 0; color: var(--text-bright);" data-i18n="p2Title">
+            JWT — Thẻ Vé Thông Hành Điện Tử An Toàn 8 Giờ
+          </h3>
+        </div>
+
+        <div class="grid-2" style="gap: var(--space-3); align-items: start;">
+          <div>
+            <div style="background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8; padding: var(--space-3); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: var(--space-2);">
+              <span style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: #38bdf8; letter-spacing: 0.1em; display: block; margin-bottom: 4px;" data-i18n="p2ExpTag">
+                💡 CƠ CHẾ XÁC THỰC
+              </span>
+              <p style="font-size: var(--fs-xs); color: var(--text); line-height: 1.65; margin: 0; font-style: italic;" data-i18n="p2ExpText">
+                Sau khi đăng nhập thành công, Server cấp một "thẻ từ số" (Token). Thẻ này chứa định danh, vai trò và chữ ký số HMAC-SHA256 để chống mọi hành vi sửa đổi. Thẻ tự động hết hạn và tự hủy sau 8 giờ làm việc.
+              </p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 4px; font-family: var(--font-mono); font-size: 0.7rem;">
+              <span style="padding: 4px 8px; background: rgba(244,63,94,0.15); color: #f43f5e; border-radius: 4px; border: 1px solid rgba(244,63,94,0.3);">eyJhbGciOi...</span>
+              <span style="color: #94a3b8; font-weight: 900;">.</span>
+              <span style="padding: 4px 8px; background: rgba(245,158,11,0.15); color: #f59e0b; border-radius: 4px; border: 1px solid rgba(245,158,11,0.3);">eyJpZCI6Ij...</span>
+              <span style="color: #94a3b8; font-weight: 900;">.</span>
+              <span style="padding: 4px 8px; background: rgba(56,189,248,0.15); color: #38bdf8; border-radius: 4px; border: 1px solid rgba(56,189,248,0.3);">K8mNpQrS9...</span>
+            </div>
+          </div>
+
+          <!-- Flow Checklist -->
+          <div style="background: var(--surface-2); padding: var(--space-3); border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+            <h4 style="font-size: var(--fs-xs); text-transform: uppercase; font-weight: 800; margin-bottom: 10px; color: var(--text-bright);" data-i18n="p2FlowTitle">
+              LUỒNG THỰC THI 4 BƯỚC AN TOÀN
+            </h4>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: var(--fs-xs);">
+              <div style="display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: var(--surface); border-radius: 8px; border: 1px solid var(--border-soft);">
+                <strong style="color: var(--brand);">01</strong>
+                <span data-i18n="jwtStep1">Kiểm tra IP & Giới hạn tần suất đăng nhập (Rate Limit)</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: var(--surface); border-radius: 8px; border: 1px solid var(--border-soft);">
+                <strong style="color: var(--brand);">02</strong>
+                <span data-i18n="jwtStep2">PBKDF2 So khớp mật khẩu với độ trễ chống Timing Attack</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: var(--surface); border-radius: 8px; border: 1px solid var(--border-soft);">
+                <strong style="color: var(--brand);">03</strong>
+                <span data-i18n="jwtStep3">Cấp thẻ Token JWT chứa chữ ký mật mã HMAC-SHA256</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: var(--surface); border-radius: 8px; border: 1px solid var(--border-soft);">
+                <strong style="color: var(--brand);">04</strong>
+                <span data-i18n="jwtStep4">Xác thực quyền hạn ma trận theo từng API Endpoints</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHẦN 3: RATE LIMITING & TƯỜNG LỬA -->
+      <div id="sec-ratelimit" style="margin-bottom: var(--space-4); scroll-margin-top: 90px;" class="card" data-reveal>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-3);">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #d97706; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem;">03</div>
+          <h3 style="font-size: var(--fs-lg); margin: 0; color: var(--text-bright);" data-i18n="p3Title">
+            Rate Limiting — Bộ Lọc Ngăn Chặn Tấn Công Tự Động
+          </h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-2);">
+          
+          <div style="background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: var(--radius-md); padding: var(--space-3);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🔨</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright); display: block;" data-i18n="att1Name">Brute-Force</strong>
+            <p style="font-size: 0.7rem; color: var(--text-muted); margin-block: 4px 8px;" data-i18n="att1Desc">Thử mật khẩu tự động liên tục</p>
+            <div style="font-size: 0.7rem; color: #10b981; font-weight: 700; border-top: 1px solid var(--border-soft); padding-top: 6px;" data-i18n="att1Shield">
+              🛡️ Khóa IP 15 phút sau 10 lần sai
+            </div>
+          </div>
+
+          <div style="background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: var(--radius-md); padding: var(--space-3);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">⏱️</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright); display: block;" data-i18n="att2Name">Timing Attack</strong>
+            <p style="font-size: 0.7rem; color: var(--text-muted); margin-block: 4px 8px;" data-i18n="att2Desc">Đo lường sai lệch thời gian phản hồi</p>
+            <div style="font-size: 0.7rem; color: #10b981; font-weight: 700; border-top: 1px solid var(--border-soft); padding-top: 6px;" data-i18n="att2Shield">
+              🛡️ Độ trễ ngẫu nhiên 150-250ms
+            </div>
+          </div>
+
+          <div style="background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: var(--radius-md); padding: var(--space-3);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">🌊</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright); display: block;" data-i18n="att3Name">Spam Đăng Ký</strong>
+            <p style="font-size: 0.7rem; color: var(--text-muted); margin-block: 4px 8px;" data-i18n="att3Desc">Tạo tài khoản ảo làm tràn bộ nhớ</p>
+            <div style="font-size: 0.7rem; color: #10b981; font-weight: 700; border-top: 1px solid var(--border-soft); padding-top: 6px;" data-i18n="att3Shield">
+              🛡️ Giới hạn 1 tài khoản / 30 giây
+            </div>
+          </div>
+
+          <div style="background: var(--surface-2); border: 1px solid var(--border-soft); border-radius: var(--radius-md); padding: var(--space-3);">
+            <div style="font-size: 1.8rem; margin-bottom: 6px;">📂</div>
+            <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright); display: block;" data-i18n="att4Name">Path Traversal</strong>
+            <p style="font-size: 0.7rem; color: var(--text-muted); margin-block: 4px 8px;" data-i18n="att4Desc">Cố tình đọc trộm file hệ thống</p>
+            <div style="font-size: 0.7rem; color: #10b981; font-weight: 700; border-top: 1px solid var(--border-soft); padding-top: 6px;" data-i18n="att4Shield">
+              🛡️ Bộ lọc Sanitizer & Chặn Path
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PHẦN 4: 7 LỚP PHÒNG THỦ CHUYÊN SÂU -->
+      <div id="sec-defense" style="margin-bottom: var(--space-4); scroll-margin-top: 90px;" class="card" data-reveal>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-3);">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: #6366f1; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85rem;">04</div>
+          <h3 style="font-size: var(--fs-lg); margin: 0; color: var(--text-bright);" data-i18n="p4Title">
+            Kiến trúc 7 Lớp Phòng thủ Chuyên sâu (Defense-in-Depth)
+          </h3>
+        </div>
+
+        <div class="ca8-defense-timeline">
+          
+          <div class="ca8-defense-node">
+            <span class="ca8-defense-num">1</span>
+            <div style="background: var(--surface-2); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+              <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright);">🌐 HTTPS / TLS Encryption</strong>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin: 2px 0 0;" data-i18n="d1Desc">Mã hóa toàn bộ lưu lượng đường truyền mạng thông qua Reverse Proxy Nginx.</p>
+            </div>
+          </div>
+
+          <div class="ca8-defense-node">
+            <span class="ca8-defense-num">2</span>
+            <div style="background: var(--surface-2); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+              <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright);">🚧 CORS Whitelist Protection</strong>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin: 2px 0 0;" data-i18n="d2Desc">Chỉ chấp nhận các yêu cầu truy vấn API từ các tên miền được chỉ định.</p>
+            </div>
+          </div>
+
+          <div class="ca8-defense-node">
+            <span class="ca8-defense-num">3</span>
+            <div style="background: var(--surface-2); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+              <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright);">🚦 Gatekeeper Rate Limiting</strong>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin: 2px 0 0;" data-i18n="d3Desc">Kiểm soát tần suất gửi request theo địa chỉ IP để chống nghẽn và quét lỗ hổng.</p>
+            </div>
+          </div>
+
+          <div class="ca8-defense-node">
+            <span class="ca8-defense-num">4</span>
+            <div style="background: var(--surface-2); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+              <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright);">🎫 JWT Cryptographic Verification</strong>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin: 2px 0 0;" data-i18n="d4Desc">Xác thực Token số 8 giờ cho mọi API nhạy cảm và thao tác quản trị.</p>
+            </div>
+          </div>
+
+          <div class="ca8-defense-node">
+            <span class="ca8-defense-num">5</span>
+            <div style="background: var(--surface-2); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+              <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright);">👤 Database Account Real-time Check</strong>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin: 2px 0 0;" data-i18n="d5Desc">Kiểm tra trạng thái hoạt động thực của tài khoản trong cơ sở dữ liệu trên mỗi request.</p>
+            </div>
+          </div>
+
+          <div class="ca8-defense-node">
+            <span class="ca8-defense-num">6</span>
+            <div style="background: var(--surface-2); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+              <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright);">🔑 Salted PBKDF2 Storage</strong>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin: 2px 0 0;" data-i18n="d6Desc">Mật khẩu người dùng được băm 100k lần cùng chuỗi Salt động không thể đảo ngược.</p>
+            </div>
+          </div>
+
+          <div class="ca8-defense-node" style="margin-bottom: 0;">
+            <span class="ca8-defense-num">7</span>
+            <div style="background: var(--surface-2); padding: 10px 14px; border-radius: var(--radius-md); border: 1px solid var(--border-soft);">
+              <strong style="font-size: var(--fs-xs); text-transform: uppercase; color: var(--text-bright);">💾 AES-256 Encrypted Backups</strong>
+              <p style="font-size: 0.7rem; color: var(--text-muted); margin: 2px 0 0;" data-i18n="d7Desc">File sao lưu database được mã hóa bằng chuẩn AES-256 quân sự trước khi lưu trữ.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PHẦN 5: LIVE SECURITY LOG AUDITING TERMINAL -->
+      <div class="card" style="background: #020617; border-color: #1e293b; color: #ffffff;" data-reveal>
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; animation: pulse 2s infinite;"></span>
+            <span style="font-family: var(--font-mono); font-size: var(--fs-xs); color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;" data-i18n="termTitle">
+              LIVE SECURITY AUDIT FEED
+            </span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.65rem; color: #64748b;">HOST: ca8eoffice.io.vn</span>
+        </div>
+
+        <div class="ca8-terminal-box" id="ca8-live-terminal" style="max-height: 160px; overflow-y: auto;">
+          <div class="ca8-terminal-line"><span style="color: #34d399;">[OK]</span> <span style="color: #94a3b8;">auth:</span> user "gv_duycuong" authenticated via PBKDF2 (Chrome/macOS)</div>
+          <div class="ca8-terminal-line"><span style="color: #38bdf8;">[INFO]</span> <span style="color: #94a3b8;">jwt:</span> session token issued (valid 8 hours, HMAC-SHA256 signed)</div>
+          <div class="ca8-terminal-line"><span style="color: #f43f5e;">[WARN]</span> <span style="color: #94a3b8;">rate-limit:</span> 5 failed logins from 42.113.xx.xx — temporary 5m throttle engaged</div>
+          <div class="ca8-terminal-line"><span style="color: #34d399;">[OK]</span> <span style="color: #94a3b8;">backup:</span> scheduled database snapshot encrypted via AES-256 (1.4MB)</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 7. NHẬT KÝ PHÁT TRIỂN (CHANGELOG ACCORDION) -->
+    <section class="section container" data-reveal>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-clock-rotate-left"></i> <span data-i18n="clEyebrow">TIẾN TRÌNH NÂNG CẤP</span></span>
+          <h2 data-i18n="clTitle">Nhật ký Phát triển & Lịch sử Phiên bản</h2>
+          <p class="section-desc" data-i18n="clSubtitle">
+            Hành trình hoàn thiện liên tục từ phiên bản thử nghiệm đầu tiên đến giải pháp quản trị toàn diện hiện nay.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        
+        <!-- v4.0.0 -->
+        <div class="ca8-changelog-card is-open" id="cl-v400">
+          <button type="button" class="ca8-changelog-btn" onclick="toggleChangelog('cl-v400')">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="checker-pill" style="background: #2563eb; color: #fff; font-weight: 800; font-size: 0.75rem;">v4.0.0</span>
+              <div>
+                <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="v4Label">Phiên bản Mới nhất · Enterprise Edition</strong>
+                <div style="font-size: 0.7rem; color: var(--text-muted);">08/2026</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </button>
+          <div class="ca8-changelog-body">
+            <ul style="margin: 0; padding-left: 20px; font-size: var(--fs-xs); color: var(--text); line-height: 1.8;">
+              <li data-i18n="v4Item1">Cập nhật tính năng "Tiến độ công việc" chuyên sâu trong từng đơn vị.</li>
+              <li data-i18n="v4Item2">Hỗ trợ Import Lịch Đơn vị đối với Lịch giảng dạy và đào tạo.</li>
+              <li data-i18n="v4Item3">Tối ưu hóa hiệu năng truy vấn dữ liệu và giảm 40% độ trễ mạng.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- v3.0.0 -->
+        <div class="ca8-changelog-card" id="cl-v300">
+          <button type="button" class="ca8-changelog-btn" onclick="toggleChangelog('cl-v300')">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="checker-pill" style="background: #4f46e5; color: #fff; font-weight: 800; font-size: 0.75rem;">v3.0.0</span>
+              <div>
+                <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="v3Label">Bổ sung Lịch Đơn vị & Song ngữ</strong>
+                <div style="font-size: 0.7rem; color: var(--text-muted);">05/2026</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </button>
+          <div class="ca8-changelog-body">
+            <ul style="margin: 0; padding-left: 20px; font-size: var(--fs-xs); color: var(--text); line-height: 1.8;">
+              <li data-i18n="v3Item1">Bổ sung chức năng quản lý lịch Đơn vị riêng biệt.</li>
+              <li data-i18n="v3Item2">Cải tiến Đăng ký lịch nội bộ: Tự động gợi ý danh sách cán bộ trong đơn vị để chọn Thành phần và Chủ trì.</li>
+              <li data-i18n="v3Item3">Hỗ trợ sao lưu tự động nhiều lần theo lịch trình cấu hình trước.</li>
+              <li data-i18n="v3Item4">Bổ sung giao diện Tiếng Anh toàn hệ thống.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- v2.0.0 -->
+        <div class="ca8-changelog-card" id="cl-v200">
+          <button type="button" class="ca8-changelog-btn" onclick="toggleChangelog('cl-v200')">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="checker-pill" style="background: #059669; color: #fff; font-weight: 800; font-size: 0.75rem;">v2.0.0</span>
+              <div>
+                <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="v2Label">Nâng cấp Engine Đồng bộ & Trợ lý AI</strong>
+                <div style="font-size: 0.7rem; color: var(--text-muted);">03/2026</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </button>
+          <div class="ca8-changelog-body">
+            <ul style="margin: 0; padding-left: 20px; font-size: var(--fs-xs); color: var(--text); line-height: 1.8;">
+              <li data-i18n="v2Item1">Cải thiện toàn diện engine đồng bộ dữ liệu, khắc phục triệt để lỗi mất lịch.</li>
+              <li data-i18n="v2Item2">Tích hợp trợ lý ảo AI Chatbot tự phát triển hỗ trợ tra cứu lịch.</li>
+              <li data-i18n="v2Item3">Tối ưu giao diện đáp ứng mượt mà trên mọi thiết bị di động.</li>
+              <li data-i18n="v2Item4">Nâng cấp bảo mật: PBKDF2 password hashing và JWT tự ký bảo mật cao.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- v1.5.0 -->
+        <div class="ca8-changelog-card" id="cl-v150">
+          <button type="button" class="ca8-changelog-btn" onclick="toggleChangelog('cl-v150')">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="checker-pill" style="background: #7c3aed; color: #fff; font-weight: 800; font-size: 0.75rem;">v1.5.0</span>
+              <div>
+                <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="v15Label">Calendar View & Phân quyền Động</strong>
+                <div style="font-size: 0.7rem; color: var(--text-muted);">02/2026</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </button>
+          <div class="ca8-changelog-body">
+            <ul style="margin: 0; padding-left: 20px; font-size: var(--fs-xs); color: var(--text); line-height: 1.8;">
+              <li data-i18n="v15Item1">Ra mắt chế độ xem Lịch tháng (Calendar View) và Timeline ngày.</li>
+              <li data-i18n="v15Item2">Thêm phân quyền động theo ma trận vai trò người dùng.</li>
+              <li data-i18n="v15Item3">Thêm thông báo hệ thống realtime và popup cảnh báo lịch gấp.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- v1.0.0 -->
+        <div class="ca8-changelog-card" id="cl-v100">
+          <button type="button" class="ca8-changelog-btn" onclick="toggleChangelog('cl-v100')">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="checker-pill" style="background: #e11d48; color: #fff; font-weight: 800; font-size: 0.75rem;">v1.0.0</span>
+              <div>
+                <strong style="font-size: var(--fs-sm); color: var(--text-bright);" data-i18n="v10Label">Phiên bản Khởi chạy Đầu tiên</strong>
+                <div style="font-size: 0.7rem; color: var(--text-muted);">01/2026</div>
+              </div>
+            </div>
+            <i class="fa-solid fa-chevron-down chevron"></i>
+          </button>
+          <div class="ca8-changelog-body">
+            <ul style="margin: 0; padding-left: 20px; font-size: var(--fs-xs); color: var(--text); line-height: 1.8;">
+              <li data-i18n="v10Item1">Phiên bản thử nghiệm đầu tiên đưa vào vận hành thực tế.</li>
+              <li data-i18n="v10Item2">Đăng ký & phê duyệt lịch công tác tuần cơ bản, xem lịch dạng bảng (Table View).</li>
+              <li data-i18n="v10Item3">Quy trình 4 cấp: Đơn vị → Văn phòng → Ban Giám đốc.</li>
+              <li data-i18n="v10Item4">Quản lý trực ban, trực chỉ huy tuần và sao lưu mã hóa AES-256.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. CÔNG NGHỆ NỀN TẢNG (CORE TECH STACK) -->
+    <section class="section container" data-reveal>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-layer-group"></i> <span data-i18n="techEyebrow">KIẾN TRÚC HỆ THỐNG</span></span>
+          <h2 data-i18n="techTitle">Công nghệ Nền tảng</h2>
+          <p class="section-desc" data-i18n="techSubtitle">
+            Được xây dựng trên nền tảng Full-stack Web hiện đại, đảm bảo tốc độ phản hồi tính bằng mili-giây và độ ổn định cao.
+          </p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px;">
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">⚛️</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">React 19</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Frontend Engine</span>
+        </div>
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">🔷</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">TypeScript</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Type Safety</span>
+        </div>
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">🎨</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">Tailwind 4</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Modern Styling</span>
+        </div>
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">🚀</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">Express 5</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Backend Server</span>
+        </div>
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">🗄️</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">SQLite</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Database</span>
+        </div>
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">⚡</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">Vite 7</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Build Tooling</span>
+        </div>
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">✨</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">Framer</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Micro Animations</span>
+        </div>
+        <div class="ca8-tech-chip">
+          <span style="font-size: 2rem;">🤖</span>
+          <strong style="font-size: var(--fs-xs); text-transform: uppercase;">Local AI Bot</strong>
+          <span style="font-size: 0.65rem; color: var(--text-muted);">Smart Assistant</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. THÔNG TIN PHÁT TRIỂN & HỖ TRỢ KỸ THUẬT (DEVELOPMENT & CONTACT INFO) -->
+    <section class="section container" style="padding-bottom: var(--space-6);" data-reveal>
+      <div style="background: #020617; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: var(--space-4); color: #ffffff; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%); filter: blur(50px); pointer-events: none;"></div>
+
+        <div style="position: relative; z-index: 2;">
+          <h3 style="font-size: var(--fs-xl); font-weight: 900; text-transform: uppercase; color: #38bdf8; margin-bottom: var(--space-3);" data-i18n="devHeading">
+            THÔNG TIN PHÁT TRIỂN & HỖ TRỢ KỸ THUẬT
+          </h3>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3); margin-bottom: var(--space-4);">
+            <div>
+              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #64748b; margin-bottom: 4px;" data-i18n="devHostLbl">ĐƠN VỊ CHỦ TRÌ</p>
+              <strong style="font-size: var(--fs-sm); color: #f8fafc;" data-i18n="devHostVal">Học viện Chính trị Công an nhân dân</strong>
+            </div>
+            <div>
+              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #64748b; margin-bottom: 4px;" data-i18n="devFacLbl">ĐƠN VỊ THỰC HIỆN</p>
+              <strong style="font-size: var(--fs-sm); color: #f8fafc;" data-i18n="devFacVal">Khoa Ngoại ngữ - Tin học</strong>
+            </div>
+            <div>
+              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #64748b; margin-bottom: 4px;" data-i18n="devVerLbl">PHIÊN BẢN HỆ THỐNG</p>
+              <strong style="font-size: var(--fs-sm); color: #38bdf8;">v4.0.0 (Enterprise Edition)</strong>
+            </div>
+            <div>
+              <p style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #64748b; margin-bottom: 4px;" data-i18n="devZaloLbl">HỖ TRỢ ZALO</p>
+              <a href="https://zalo.me/atomins" target="_blank" rel="noopener" style="color: #38bdf8; font-weight: 800; text-decoration: underline;">zalo.me/atomins</a>
+            </div>
+          </div>
+
+          <!-- Direct Hotline Contacts -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-2); border-top: 1px solid rgba(255,255,255,0.08); padding-top: var(--space-3);">
+            <a href="tel:0906752248" style="display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 12px 18px; border-radius: var(--radius-md); text-decoration: none; color: #ffffff; transition: background 0.25s;">
+              <span style="font-size: 1.6rem;">💬</span>
+              <div>
+                <strong style="font-size: var(--fs-xs); text-transform: uppercase; display: block;">Mr. Tất Thành</strong>
+                <span style="color: #38bdf8; font-weight: 800; font-size: var(--fs-sm); font-family: var(--font-mono);">0906.752.248</span>
+              </div>
+            </a>
+
+            <a href="tel:0919191804" style="display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 12px 18px; border-radius: var(--radius-md); text-decoration: none; color: #ffffff; transition: background 0.25s;">
+              <span style="font-size: 1.6rem;">💬</span>
+              <div>
+                <strong style="font-size: var(--fs-xs); text-transform: uppercase; display: block;">Mr. Duy Cương</strong>
+                <span style="color: #38bdf8; font-weight: 800; font-size: var(--fs-sm); font-family: var(--font-mono);">0919.191.804</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+
+  <!-- Interactive JavaScript Engine for Ca8Eoffice Page -->
+  <script>
+    // 1. Bilingual Data Dictionary
+    const CA8_I18N = {
+      vi: {
+        heroBadge: 'Hệ thống đang hoạt động',
+        heroDesc: 'Hệ thống Quản lý Lịch công tác Tuần Điện tử — Thiết kế và phát triển bởi Khoa Ngoại ngữ - Tin học, Học viện Chính trị Công an nhân dân. Nền tảng số hóa quy trình đăng ký, thẩm định và công bố lịch làm việc thông minh.',
+        statUsers: 'Cán bộ & Giảng viên',
+        statInteractions: 'Tương tác mỗi tuần',
+        statRealtime: 'Cập nhật công việc',
+        btnLiveSystem: 'Truy cập Ca8Eoffice Live',
+        btnSecurityDocs: 'Phân tích bảo mật & Kiến trúc',
+        rolesEyebrow: 'PHÂN QUYỀN MA TRẬN',
+        rolesTitle: 'Hệ thống 5 Vai trò Người dùng',
+        rolesSubtitle: 'Mô hình phân quyền đa cấp độ đảm bảo tính bảo mật, minh bạch và đúng thẩm quyền trách nhiệm trong cơ quan, đơn vị.',
+        role1Name: 'Cán bộ',
+        role1Desc: 'Đăng ký lịch công tác tuần cho đơn vị, tự động điền danh sách thành phần và kiểm tra xung đột thời gian thực.',
+        role2Name: 'Trưởng đơn vị',
+        role2Desc: 'Xem xét, phê duyệt hoặc gửi trả yêu cầu bổ sung thông tin lịch cấp đơn vị trước khi gửi lên Văn phòng Học viện.',
+        role3Name: 'Văn phòng',
+        role3Desc: 'Tổng hợp, rà soát xung đột địa điểm phòng họp, ghép nối lịch toàn trường và dự thảo lịch trình gửi Ban Giám đốc.',
+        role4Name: 'Ban Giám đốc',
+        role4Desc: 'Thẩm định tối cao, phê duyệt chính thức để phát hành lịch tuần điện tử công khai trên toàn hệ thống mạng nội bộ.',
+        role5Name: 'Quản trị viên',
+        role5Desc: 'Toàn quyền cấu hình, quản lý người dùng, giả lập vai trò (Role Emulation), sao lưu AES-256 và giám sát an ninh.',
+        wfEyebrow: 'QUY TRÌNH TỰ ĐỘNG',
+        wfTitle: 'Quy trình Phê duyệt 4 Cấp Chuẩn hóa',
+        wfSubtitle: 'Quy trình khép kín, tinh gọn từ khâu lập kế hoạch đến khi công bố lịch tuần, loại bỏ hoàn toàn giấy tờ thủ công.',
+        wf1Title: '✍️ Đăng ký Lịch',
+        wf1Desc: 'Cán bộ nhập thông tin lịch công tác. Hệ thống tự động kiểm tra trùng lặp khung giờ và địa điểm phòng họp.',
+        wf2Title: '🏢 Trưởng Đơn Vị Duyệt',
+        wf2Desc: 'Trưởng đơn vị kiểm tra nội dung, ký duyệt chuyển tiếp hoặc gửi trả kèm lý do cần điều chỉnh.',
+        wf3Title: '🎖️ Văn Phòng Xử Lý',
+        wf3Desc: 'Văn phòng điều phối lịch toàn Học viện, tổng hợp lịch trực ban chỉ huy và trình Ban Giám đốc phê duyệt.',
+        wf4Title: '⭐ Ban Giám Đốc Duyệt',
+        wf4Desc: 'Ban Giám đốc phê duyệt chính thức. Lịch tuần được công bố tức thời trên hệ thống và cho phép xuất file in A4.',
+        stPending: 'Chờ duyệt (Pending)',
+        stUnitApproved: 'Đơn vị duyệt (Dept Approved)',
+        stPendingBoard: 'Chờ Ban GĐ (Pending Board)',
+        stApproved: 'Đã duyệt (Approved)',
+        stRejected: 'Từ chối (Rejected)',
+        viewEyebrow: 'TRẢI NGHIỆM TRỰC QUAN',
+        viewTitle: '3 Chế độ Xem Lịch Linh hoạt',
+        viewSubtitle: 'Giao diện tự động thích ứng với nhiều loại thiết bị: màn hình máy tính để bàn, máy tính bảng và điện thoại di động.',
+        tabTable: 'Chế độ Bảng (Table View)',
+        tabCalendar: 'Chế độ Lịch (Calendar View)',
+        tabTimeline: 'Chế độ Timeline (Timeline View)',
+        pvTableTitle: 'Lịch công tác tuần — Bảng chi tiết PC',
+        pvTableNote: 'Tối ưu cho hiển thị màn hình lớn, máy in A4',
+        thTime: 'Thời gian',
+        thContent: 'Nội dung công tác',
+        thLocation: 'Địa điểm',
+        thHost: 'Chủ trì',
+        thAttendees: 'Thành phần',
+        pvCalendarTitle: 'Chế độ Lịch tháng & Mật độ Công việc',
+        pvCalendarNote: 'Tối ưu cho thiết bị di động & nhận diện trực quan nhanh',
+        pvTimelineTitle: 'Chế độ Timeline 24H Trục thời gian thực',
+        pvTimelineNote: 'Kiểm soát xung đột khung giờ và điều phối phòng họp',
+        featEyebrow: 'NỀN TẢNG CÔNG NGHỆ',
+        featTitle: 'Tính năng Vượt trội của Ca8Eoffice',
+        featSubtitle: 'Được xây dựng từ nhu cầu thực tiễn của công tác quản trị hành chính hiện đại, tối ưu cho môi trường giáo dục và cơ quan đơn vị.',
+        f1Title: 'Phát hiện Xung đột Thông minh',
+        f1Desc: 'Hệ thống tự động phát hiện và cảnh báo ngay lập tức khi trùng địa điểm phòng họp, trùng lịch chủ trì hoặc người tham gia.',
+        f2Title: 'Bảo mật & Mã hóa AES-256',
+        f2Desc: 'Sao lưu tự động theo lịch định kỳ, mã hóa toàn bộ dữ liệu lịch và bảo mật mật khẩu bằng thuật toán PBKDF2 100.000 vòng lặp.',
+        f3Title: 'Trợ lý Ảo AI Tích hợp',
+        f3Desc: 'Chatbot AI hỗ trợ tra cứu lịch nhanh bằng ngôn ngữ tự nhiên, thống kê báo cáo công tác và gợi ý sắp xếp lịch trình thông minh.',
+        f4Title: 'Giả lập Vai trò Quản trị',
+        f4Desc: 'Tính năng Role Emulation cho phép Quản trị viên trải nghiệm và kiểm tra giao diện dưới góc nhìn của Cán bộ, Trưởng đơn vị hoặc Ban Giám đốc.',
+        f5Title: 'Xuất Google Calendar & In A4',
+        f5Desc: 'Đồng bộ hóa 1-chạm vào Google Calendar cá nhân và tự động căn lề, xuất bản in lịch tuần định dạng A4 chuẩn văn bản hành chính.',
+        f6Title: 'Quản lý Tiến độ & Lịch Đơn vị',
+        f6Desc: 'Phân hệ theo dõi tiến độ công việc nội bộ từng khoa phòng, import lịch giảng dạy và quản lý lịch trực ban chỉ huy tuần.',
+        secTag: 'TÀI LIỆU AN TOÀN HỆ THỐNG',
+        secHeading: 'PHÂN TÍCH BẢO MẬT HỆ THỐNG CA8EOFFICE',
+        secIntro: 'Cơ chế bảo vệ dữ liệu đa lớp — Từ thuật toán băm mật khẩu PBKDF2 đến xác thực Token JWT và phòng chống các nguy cơ tấn công mạng.',
+        secNav1Title: 'PBKDF2 Hashing',
+        secNav1Sub: '100.000 vòng lặp + Salt',
+        secNav2Title: 'JWT Token',
+        secNav2Sub: 'Vé thông hành số 8 giờ',
+        secNav3Title: 'Rate Limiting',
+        secNav3Sub: 'Chống Brute-force & Spam',
+        secNav4Title: '7 Lớp Phòng Thủ',
+        secNav4Sub: 'Defense-in-Depth',
+        p1Title: 'PBKDF2 — Thuật toán Mã hóa Mật khẩu Bất khả nghịch',
+        p1ExpTag: '📖 GIẢI THÍCH NGUYÊN LÝ',
+        p1ExpText: 'Hệ thống nghiền nát mật khẩu qua máy xay mật mã học 100.000 lần liên tiếp rồi chỉ lưu chuỗi băm cuối cùng. Kẻ tấn công cho dù có chiếm được toàn bộ cơ sở dữ liệu cũng không thể tính toán ngược lại mật khẩu gốc. Mỗi tài khoản sở hữu một "gia vị bí mật" (Salt) ngẫu nhiên 16-bytes độc lập.',
+        p1MeterTitle: 'ĐÁNH GIÁ ĐỘ AN TOÀN TRƯỚC TẤN CÔNG DICTIONARY',
+        mMD5: 'Bị bẻ khóa trong 1 giây',
+        mSHA: 'Bị bẻ khóa trong vài giờ',
+        mPBKDF2: 'Chuẩn Quốc gia — Cực kỳ An toàn',
+        p1Footnote: '* PBKDF2 với 100.000 vòng lặp khiến chi phí tính toán phần cứng của kẻ tấn công tăng theo cấp số nhân, vô hiệu hóa hoàn toàn phương pháp brute-force ngoại tuyến.',
+        p2Title: 'JWT — Thẻ Vé Thông Hành Điện Tử An Toàn 8 Giờ',
+        p2ExpTag: '💡 CƠ CHẾ XÁC THỰC',
+        p2ExpText: 'Sau khi đăng nhập thành công, Server cấp một "thẻ từ số" (Token). Thẻ này chứa định danh, vai trò và chữ ký số HMAC-SHA256 để chống mọi hành vi sửa đổi. Thẻ tự động hết hạn và tự hủy sau 8 giờ làm việc.',
+        p2FlowTitle: 'LUỒNG THỰC THI 4 BƯỚC AN TOÀN',
+        jwtStep1: 'Kiểm tra IP & Giới hạn tần suất đăng nhập (Rate Limit)',
+        jwtStep2: 'PBKDF2 So khớp mật khẩu với độ trễ chống Timing Attack',
+        jwtStep3: 'Cấp thẻ Token JWT chứa chữ ký mật mã HMAC-SHA256',
+        jwtStep4: 'Xác thực quyền hạn ma trận theo từng API Endpoints',
+        p3Title: 'Rate Limiting — Bộ Lọc Ngăn Chặn Tấn Công Tự Động',
+        att1Name: 'Brute-Force',
+        att1Desc: 'Thử mật khẩu tự động liên tục',
+        att1Shield: '🛡️ Khóa IP 15 phút sau 10 lần sai',
+        att2Name: 'Timing Attack',
+        att2Desc: 'Đo lường sai lệch thời gian phản hồi',
+        att2Shield: '🛡️ Độ trễ ngẫu nhiên 150-250ms',
+        att3Name: 'Spam Đăng Ký',
+        att3Desc: 'Tạo tài khoản ảo làm tràn bộ nhớ',
+        att3Shield: '🛡️ Giới hạn 1 tài khoản / 30 giây',
+        att4Name: 'Path Traversal',
+        att4Desc: 'Cố tình đọc trộm file hệ thống',
+        att4Shield: '🛡️ Bộ lọc Sanitizer & Chặn Path',
+        p4Title: 'Kiến trúc 7 Lớp Phòng thủ Chuyên sâu (Defense-in-Depth)',
+        d1Desc: 'Mã hóa toàn bộ lưu lượng đường truyền mạng thông qua Reverse Proxy Nginx.',
+        d2Desc: 'Chỉ chấp nhận các yêu cầu truy vấn API từ các tên miền được chỉ định.',
+        d3Desc: 'Kiểm soát tần suất gửi request theo địa chỉ IP để chống nghẽn và quét lỗ hổng.',
+        d4Desc: 'Xác thực Token số 8 giờ cho mọi API nhạy cảm và thao tác quản trị.',
+        d5Desc: 'Kiểm tra trạng thái hoạt động thực của tài khoản trong cơ sở dữ liệu trên mỗi request.',
+        d6Desc: 'Mật khẩu người dùng được băm 100k lần cùng chuỗi Salt động không thể đảo ngược.',
+        d7Desc: 'File sao lưu database được mã hóa bằng chuẩn AES-256 quân sự trước khi lưu trữ.',
+        termTitle: 'LIVE SECURITY AUDIT FEED',
+        clEyebrow: 'TIẾN TRÌNH NÂNG CẤP',
+        clTitle: 'Nhật ký Phát triển & Lịch sử Phiên bản',
+        clSubtitle: 'Hành trình hoàn thiện liên tục từ phiên bản thử nghiệm đầu tiên đến giải pháp quản trị toàn diện hiện nay.',
+        v4Label: 'Phiên bản Mới nhất · Enterprise Edition',
+        v4Item1: 'Cập nhật tính năng "Tiến độ công việc" chuyên sâu trong từng đơn vị.',
+        v4Item2: 'Hỗ trợ Import Lịch Đơn vị đối với Lịch giảng dạy và đào tạo.',
+        v4Item3: 'Tối ưu hóa hiệu năng truy vấn dữ liệu và giảm 40% độ trễ mạng.',
+        v3Label: 'Bổ sung Lịch Đơn vị & Song ngữ',
+        v3Item1: 'Bổ sung chức năng quản lý lịch Đơn vị riêng biệt.',
+        v3Item2: 'Cải tiến Đăng ký lịch nội bộ: Tự động gợi ý danh sách cán bộ trong đơn vị để chọn Thành phần và Chủ trì.',
+        v3Item3: 'Hỗ trợ sao lưu tự động nhiều lần theo lịch trình cấu hình trước.',
+        v3Item4: 'Bổ sung giao diện Tiếng Anh toàn hệ thống.',
+        v2Label: 'Nâng cấp Engine Đồng bộ & Trợ lý AI',
+        v2Item1: 'Cải thiện toàn diện engine đồng bộ dữ liệu, khắc phục triệt để lỗi mất lịch.',
+        v2Item2: 'Tích hợp trợ lý ảo AI Chatbot tự phát triển hỗ trợ tra cứu lịch.',
+        v2Item3: 'Tối ưu giao diện đáp ứng mượt mà trên mọi thiết bị di động.',
+        v2Item4: 'Nâng cấp bảo mật: PBKDF2 password hashing và JWT tự ký bảo mật cao.',
+        v15Label: 'Calendar View & Phân quyền Động',
+        v15Item1: 'Ra mắt chế độ xem Lịch tháng (Calendar View) và Timeline ngày.',
+        v15Item2: 'Thêm phân quyền động theo ma trận vai trò người dùng.',
+        v15Item3: 'Thêm thông báo hệ thống realtime và popup cảnh báo lịch gấp.',
+        v10Label: 'Phiên bản Khởi chạy Đầu tiên',
+        v10Item1: 'Phiên bản thử nghiệm đầu tiên đưa vào vận hành thực tế.',
+        v10Item2: 'Đăng ký & phê duyệt lịch công tác tuần cơ bản, xem lịch dạng bảng (Table View).',
+        v10Item3: 'Quy trình 4 cấp: Đơn vị → Văn phòng → Ban Giám đốc.',
+        v10Item4: 'Quản lý trực ban, trực chỉ huy tuần và sao lưu mã hóa AES-256.',
+        techEyebrow: 'KIẾN TRÚC HỆ THỐNG',
+        techTitle: 'Công nghệ Nền tảng',
+        techSubtitle: 'Được xây dựng trên nền tảng Full-stack Web hiện đại, đảm bảo tốc độ phản hồi tính bằng mili-giây và độ ổn định cao.',
+        devHeading: 'THÔNG TIN PHÁT TRIỂN & HỖ TRỢ KỸ THUẬT',
+        devHostLbl: 'ĐƠN VỊ CHỦ TRÌ',
+        devHostVal: 'Học viện Chính trị Công an nhân dân',
+        devFacLbl: 'ĐƠN VỊ THỰC HIỆN',
+        devFacVal: 'Khoa Ngoại ngữ - Tin học',
+        devVerLbl: 'PHIÊN BẢN HỆ THỐNG',
+        devZaloLbl: 'HỖ TRỢ ZALO',
+      },
+      en: {
+        heroBadge: 'Live System Operational',
+        heroDesc: 'Electronic Weekly Work Schedule Management System — Designed and developed by the Faculty of Foreign Languages & IT, People\'s Police Political Academy. A modern digital platform streamlining registration, verification, and schedule publication.',
+        statUsers: 'Officers & Faculty',
+        statInteractions: 'Weekly Interactions',
+        statRealtime: 'Realtime Duty Updates',
+        btnLiveSystem: 'Access Ca8Eoffice Live',
+        btnSecurityDocs: 'Security Architecture & Docs',
+        rolesEyebrow: 'ROLE-BASED MATRIX',
+        rolesTitle: '5 User Roles Architecture',
+        rolesSubtitle: 'Multi-tiered access control ensuring data confidentiality, transparency, and administrative compliance.',
+        role1Name: 'Officer',
+        role1Desc: 'Registers weekly schedules for own department, automatically retrieves attendees list and validates real-time conflicts.',
+        role2Name: 'Dept Head',
+        role2Desc: 'Reviews, approves, or returns unit schedule submissions with feedback notes prior to Academy Office submission.',
+        role3Name: 'Office Staff',
+        role3Desc: 'Consolidates academy-wide events, resolves meeting room conflicts, drafts schedule, and submits to Board of Directors.',
+        role4Name: 'Board of Directors',
+        role4Desc: 'Final supreme sign-off, officially publishes weekly schedule electronically across the entire intranet portal.',
+        role5Name: 'Administrator',
+        role5Desc: 'Full configuration rights, user management, Role Emulation simulator, AES-256 backups, and cybersecurity audit logs.',
+        wfEyebrow: 'AUTOMATED PIPELINE',
+        wfTitle: 'Standardized 4-Stage Approval Workflow',
+        wfSubtitle: 'Seamless end-to-end digital pipeline from event draft to official publishing, completely eliminating paperwork.',
+        wf1Title: '✍️ Registration',
+        wf1Desc: 'Officers enter work schedule details. The system runs real-time automated duplicate time slot and meeting room scans.',
+        wf2Title: '🏢 Dept Review',
+        wf2Desc: 'Department head inspects contents, signs off or returns schedule with required revision notes.',
+        wf3Title: '🎖️ Office Drafting',
+        wf3Desc: 'Office staff coordinates events academy-wide, integrates duty rosters, and prepares executive submission.',
+        wf4Title: '⭐ Board Sign-off',
+        wf4Desc: 'Executive board grants official approval. Schedules are published instantly and formatted for A4 printing.',
+        stPending: 'Pending Review',
+        stUnitApproved: 'Dept Approved',
+        stPendingBoard: 'Pending Board',
+        stApproved: 'Approved',
+        stRejected: 'Rejected',
+        viewEyebrow: 'INTUITIVE USER EXPERIENCE',
+        viewTitle: '3 Flexible Display Modes',
+        viewSubtitle: 'Responsive viewport layouts adapting to desktop monitors, tablets, and smartphones seamlessly.',
+        tabTable: 'Table View',
+        tabCalendar: 'Calendar View',
+        tabTimeline: 'Timeline View',
+        pvTableTitle: 'Weekly Schedule — Tabular Grid View',
+        pvTableNote: 'Optimized for desktop widescreen & A4 printer layout',
+        thTime: 'Time',
+        thContent: 'Work Description',
+        thLocation: 'Location',
+        thHost: 'Chairperson',
+        thAttendees: 'Attendees',
+        pvCalendarTitle: 'Monthly Calendar & Workload Density',
+        pvCalendarNote: 'Optimized for mobile viewports & fast visual scanning',
+        pvTimelineTitle: '24H Real-time Chronological Timeline',
+        pvTimelineNote: 'Eliminating time-slot overlapping and managing meeting spaces',
+        featEyebrow: 'CORE CAPABILITIES',
+        featTitle: 'Key Outstanding Features',
+        featSubtitle: 'Built from genuine administrative workflows, optimized for educational institutions and law enforcement agencies.',
+        f1Title: 'Smart Conflict Detection',
+        f1Desc: 'System automatically flags time overlaps, duplicate meeting rooms, chairpersons, or conflicting participant schedules.',
+        f2Title: 'AES-256 Encryption & Security',
+        f2Desc: 'Automatic multi-round scheduled backups, encrypted exports, and PBKDF2 100,000-iteration salted password protection.',
+        f3Title: 'Integrated AI Virtual Assistant',
+        f3Desc: 'Custom AI Assistant chatbot supporting natural language queries, duty analytics, and intelligent scheduling suggestions.',
+        f4Title: 'Admin Role Emulation',
+        f4Desc: 'Allows administrators to instantly preview and test system modules under Officer, Dept Head, or Board perspectives.',
+        f5Title: 'Google Calendar Export & A4 Print',
+        f5Desc: '1-click export to personal Google Calendar and automated typesetting for official A4 administrative printing.',
+        f6Title: 'Work Progress & Unit Calendar',
+        f6Desc: 'Dedicated sub-modules for department progress tracking, teaching schedule imports, and weekly shift officer management.',
+        secTag: 'SYSTEM SECURITY ARCHITECTURE',
+        secHeading: 'CA8EOFFICE CYBERSECURITY ANALYSIS',
+        secIntro: 'Multi-tiered defense architecture — From PBKDF2 cryptographic password hashing to JWT token authentication and DDoS prevention.',
+        secNav1Title: 'PBKDF2 Hashing',
+        secNav1Sub: '100,000 Rounds + Salt',
+        secNav2Title: 'JWT Token',
+        secNav2Sub: '8-Hour Secure Passport',
+        secNav3Title: 'Rate Limiting',
+        secNav3Sub: 'Anti-Brute Force & Spam',
+        secNav4Title: '7 Defense Layers',
+        secNav4Sub: 'Defense-in-Depth',
+        p1Title: 'PBKDF2 — Irreversible Cryptographic Password Hashing',
+        p1ExpTag: '📖 HOW IT WORKS',
+        p1ExpText: 'The system runs passwords 100,000 times through a cryptographic hashing grinder and stores only the final digest. Even if the database is leaked, it is mathematically unfeasible to reverse. Each user is assigned a distinct 16-byte random salt.',
+        p1MeterTitle: 'OFFLINE DICTIONARY ATTACK RESISTANCE',
+        mMD5: 'Cracked in <1 second',
+        mSHA: 'Cracked in few hours',
+        mPBKDF2: 'Enterprise Standard — Highly Secure',
+        p1Footnote: '* 100k PBKDF2 iterations exponentially increase hardware computation costs, rendering offline dictionary attacks virtually useless.',
+        p2Title: 'JWT — 8-Hour Cryptographic Session Passports',
+        p2ExpTag: '💡 AUTHORIZATION MECHANISM',
+        p2ExpText: 'Upon login, the server issues a digital passport (JWT Token) holding user role and HMAC-SHA256 signature against tampering. Tokens expire automatically after 8 working hours.',
+        p2FlowTitle: '4-STAGE SECURE EXECUTION FLOW',
+        jwtStep1: 'Client IP validation & Rate Limiting check',
+        jwtStep2: 'PBKDF2 timing-safe comparison with random delay',
+        jwtStep3: 'Issue HMAC-SHA256 cryptographically signed JWT',
+        jwtStep4: 'Verify dynamic permission matrices per API route',
+        p3Title: 'Rate Limiting — Automated Attack Filtering',
+        att1Name: 'Brute-Force',
+        att1Desc: 'Continuous automated password guessing',
+        att1Shield: '🛡️ 15-min IP lock after 10 failures',
+        att2Name: 'Timing Attack',
+        att2Desc: 'Measuring response latency variations',
+        att2Shield: '🛡️ Random delay (150-250ms)',
+        att3Name: 'Registration Spam',
+        att3Desc: 'Flooding fake account requests',
+        att3Shield: '🛡️ Limit: 1 sign-up per 30s',
+        att4Name: 'Path Traversal',
+        att4Desc: 'Unauthorized directory reading',
+        att4Shield: '🛡️ Sanitizer & Path validation blocks',
+        p4Title: '7-Layer Defense-in-Depth Architecture',
+        d1Desc: 'Full network traffic encryption enforced via Nginx Reverse Proxy.',
+        d2Desc: 'Accepts API requests strictly from trusted, whitelisted domain names.',
+        d3Desc: 'Monitors request frequency per IP to prevent spam and vulnerability scans.',
+        d4Desc: '8-hour cryptographic token verification for all administrative endpoints.',
+        d5Desc: 'Verifies real-time active account status inside database on every API route.',
+        d6Desc: 'Passwords hashed 100k times with dynamic unique cryptographic salt.',
+        d7Desc: 'Database snapshots are encrypted with military-grade AES-256 before storage.',
+        termTitle: 'LIVE SECURITY AUDIT FEED',
+        clEyebrow: 'VERSION TIMELINE',
+        clTitle: 'Changelog & Version History',
+        clSubtitle: 'Continuous iteration and engineering evolution from the initial prototype to an enterprise-grade platform.',
+        v4Label: 'Latest Release · Enterprise Edition',
+        v4Item1: 'Added dedicated "Work Progress" module for internal unit tracking.',
+        v4Item2: 'Unit Calendar import support for faculty teaching schedules.',
+        v4Item3: 'Database query optimization reducing latency by over 40%.',
+        v3Label: 'Unit Calendar & Bilingual Support',
+        v3Item1: 'Added independent Unit Calendar management module.',
+        v3Item2: 'Enhanced internal schedule booking with auto-suggested attendee roster.',
+        v3Item3: 'Automated multi-schedule encrypted database backups.',
+        v3Item4: 'Added complete English localization across all system interfaces.',
+        v2Label: 'Sync Engine Overhaul & AI Assistant',
+        v2Item1: 'Complete overhaul of data sync engine, resolving schedule loss bugs.',
+        v2Item2: 'Integrated custom-built AI Chatbot assistant for schedule lookup.',
+        v2Item3: 'Responsive layout optimization for all mobile device screens.',
+        v2Item4: 'Security upgrade: PBKDF2 password hashing and self-signed JWT.',
+        v15Label: 'Calendar View & Dynamic RBAC',
+        v15Item1: 'Released Monthly Calendar View and Daily Timeline View.',
+        v15Item2: 'Added dynamic matrix-based role access control.',
+        v15Item3: 'Added real-time system alerts & urgent schedule popups.',
+        v10Label: 'Initial Public Launch',
+        v10Item1: 'First beta version deployed for live operational use.',
+        v10Item2: 'Basic weekly work schedule booking and tabular grid display.',
+        v10Item3: '4-level workflow: Department → Office → Board of Directors.',
+        v10Item4: 'Duty roster tracking and AES-256 encrypted database backups.',
+        techEyebrow: 'SYSTEM ARCHITECTURE',
+        techTitle: 'Core Technology Stack',
+        techSubtitle: 'Engineered on modern Full-stack Web technologies, ensuring sub-second response times and high stability.',
+        devHeading: 'DEVELOPMENT INFO & TECHNICAL SUPPORT',
+        devHostLbl: 'HOST ACADEMY',
+        devHostVal: 'People\'s Police Political Academy',
+        devFacLbl: 'IMPLEMENTING FACULTY',
+        devFacVal: 'Faculty of Foreign Languages & IT',
+        devVerLbl: 'CORE VERSION',
+        devZaloLbl: 'ZALO SUPPORT',
+      }
+    };
+
+    // 2. Language Switcher Function
+    function setLanguage(lang) {
+      if (!CA8_I18N[lang]) return;
+
+      // Update button states
+      const btnVi = document.getElementById('btn-lang-vi');
+      const btnEn = document.getElementById('btn-lang-en');
+      if (btnVi) btnVi.classList.toggle('is-active', lang === 'vi');
+      if (btnEn) btnEn.classList.toggle('is-active', lang === 'en');
+
+      // Update all elements with data-i18n
+      const dict = CA8_I18N[lang];
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+    }
+
+    // 3. Multi-View Tab Switcher
+    function switchCa8View(viewKey) {
+      const views = ['table', 'calendar', 'timeline'];
+      views.forEach((v) => {
+        const btn = document.getElementById(`tab-btn-${v}`);
+        const panel = document.getElementById(`ca8-panel-${v}`);
+        if (btn) {
+          btn.classList.toggle('is-active', v === viewKey);
+          btn.setAttribute('aria-selected', v === viewKey ? 'true' : 'false');
+        }
+        if (panel) {
+          panel.classList.toggle('is-active', v === viewKey);
+        }
+      });
+    }
+
+    // 4. Changelog Accordion Toggle
+    function toggleChangelog(cardId) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.classList.toggle('is-open');
+      }
+    }
+
+    // 5. Live Terminal Simulation Feed
+    const terminalLogs = [
+      { tag: '[OK]', color: '#34d399', mod: 'auth:', msg: 'user "gv_duycuong" authenticated via PBKDF2 (Chrome/macOS)' },
+      { tag: '[INFO]', color: '#38bdf8', mod: 'jwt:', msg: 'session token issued (valid 8 hours, HMAC-SHA256 signed)' },
+      { tag: '[WARN]', color: '#f43f5e', mod: 'rate-limit:', msg: '5 failed logins from 42.113.xx.xx — temporary 5m throttle engaged' },
+      { tag: '[OK]', color: '#34d399', mod: 'backup:', msg: 'scheduled database snapshot encrypted via AES-256 (1.4MB)' },
+      { tag: '[OK]', color: '#38bdf8', mod: 'sync:', msg: 'weekly schedule data synchronized across 12 departments' },
+      { tag: '[INFO]', color: '#818cf8', mod: 'ai-assistant:', msg: 'chatbot queried 14 calendar events for user query "Lịch tuần này"' },
+      { tag: '[OK]', color: '#34d399', mod: 'audit:', msg: 'board approval signed for Week 35 schedule publication' }
+    ];
+
+    let logIndex = 4;
+    setInterval(() => {
+      const termBox = document.getElementById('ca8-live-terminal');
+      if (termBox) {
+        const item = terminalLogs[logIndex % terminalLogs.length];
+        const line = document.createElement('div');
+        line.className = 'ca8-terminal-line';
+        line.innerHTML = `<span style="color: ${item.color};">${item.tag}</span> <span style="color: #94a3b8;">${item.mod}</span> ${item.msg}`;
+        termBox.appendChild(line);
+        termBox.scrollTop = termBox.scrollHeight;
+        logIndex++;
+
+        // Keep at most 12 lines
+        if (termBox.children.length > 12) {
+          termBox.removeChild(termBox.children[0]);
+        }
+      }
+    }, 4000);
+  </script>
+</body>
+
+</html>

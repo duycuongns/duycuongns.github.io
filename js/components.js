@@ -159,11 +159,11 @@
               <small>Rà soát Windows & Office</small>
             </div>
           </a>
-          <a href="https://ca8eoffice.io.vn/" target="_blank" rel="noopener" class="dock-popover-link">
+          <a href="${pages}ca8eoffice.html" class="dock-popover-link" data-nav="ca8eoffice.html">
             <div class="dock-popover-icon purple"><i class="fa-solid fa-server"></i></div>
             <div class="dock-popover-text">
               <strong>Hệ thống Ca8Eoffice</strong>
-              <small>Quản lý lịch trình công tác ↗</small>
+              <small>Lịch công tác tuần v4.0</small>
             </div>
           </a>
         </div>
@@ -273,11 +273,11 @@
           <small>Rà soát Windows & Office</small>
         </div>
       </a>
-      <a href="https://ca8eoffice.io.vn/" target="_blank" rel="noopener" class="mobile-drawer-link">
+      <a href="${pages}ca8eoffice.html" class="mobile-drawer-link" data-nav="ca8eoffice.html">
         <div class="mobile-drawer-icon purple"><i class="fa-solid fa-server"></i></div>
         <div>
           <strong>Hệ thống Ca8Eoffice</strong>
-          <small>Quản lý lịch trình công tác ↗</small>
+          <small>Lịch công tác tuần v4.0</small>
         </div>
       </a>
 
